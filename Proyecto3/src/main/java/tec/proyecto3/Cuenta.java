@@ -32,6 +32,11 @@ public class Cuenta {
     public String getContraseña() {
         return contraseña;
     }
+
+    @Override
+    public String toString() {
+        return "Cuenta{" + "nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contraseña=" + contraseña + '}';
+    }
     
     
 }

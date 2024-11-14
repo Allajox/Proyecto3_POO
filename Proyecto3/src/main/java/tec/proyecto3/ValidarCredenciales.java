@@ -7,13 +7,14 @@ package tec.proyecto3;
  */
 public class ValidarCredenciales {
     /**
-     * Valida si la contraseña tiene al menos una letra mayúscula, un número y un carácter especial
+     * Valida si la contraseña tiene al menos 8 caracteres,
+     * una letra mayúscula, un número y un carácter especial
      * 
      * @param contraseña String a ser validado
      * @return true si la contraseña cumple los requisitos
      */
     public static boolean validarContraseña(String contraseña) {
-        String regexContraseña = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+-=¡!¿?'<>:;]).{8,}$";
+        String regexContraseña = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+-_/=¡!¿?'<>:;]).{8,}$";
         return contraseña.matches(regexContraseña);
         }
     /**

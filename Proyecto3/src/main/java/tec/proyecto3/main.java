@@ -8,32 +8,29 @@ import java.util.Scanner;
  */
 public class main {
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
         
         SistemaIniciarSesion sistema = new SistemaIniciarSesion();
         
-        Scanner scanner = new Scanner(System.in);
-        Scanner scanner2 = new Scanner(System.in);
+        Scanner contraRegistro = new Scanner(System.in);
+        Scanner correoRegistro = new Scanner(System.in);
+        Scanner contraIniciar = new Scanner(System.in);
+        Scanner correoIniciar = new Scanner(System.in);
 
         System.out.print("Ingrese su correo: ");
-        String correo = scanner2.nextLine();
-        
-//        if (ValidarCredenciales.validarCorreo(correo)) {
-//            System.out.println("Correo registrado correctamente.");
-//        } else {
-//            System.out.println("Formato de correo incorrecto.");
-//        }
-//        
+        String correo = correoRegistro.nextLine();
+
         System.out.print("Ingrese su contraseña: ");
-        String contraseña = scanner.nextLine();
-//        
-//        if (ValidarCredenciales.validarContraseña(contraseña)) {
-//            System.out.println("Contraseña registrada correctamente.");
-//        } else {
-//            System.out.println("La contraseña debe tener al menos una letra mayúscula, un número y un carácter especial.");
-//        }
-        
+        String contraseña = contraRegistro.nextLine();
+
         sistema.registrarCuenta("Allan", "Jiménez", correo, contraseña);
         
+        
+        System.out.print("Ingrese su correo: ");
+        String correoI = correoIniciar.nextLine();
+        System.out.print("Ingrese su contraseña: ");
+        String contraseñaI = contraIniciar.nextLine();
+        
+        sistema.iniciarSesion(correoI, contraseñaI);
     }
 }

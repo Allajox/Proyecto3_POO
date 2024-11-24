@@ -38,7 +38,7 @@ public class manejoArchivos {
      * 
      * @param categoria
      */
-    public static void cargarArchivo(Categoria categoria) {
+    public static void cargarArchivo(Categoria categoria) throws MiExcepcion {
         // no es necesario usar .close() por Try-with-resources
         try (BufferedReader reader = new BufferedReader(new FileReader("output.txt"))) {
             String line;
@@ -73,8 +73,8 @@ public class manejoArchivos {
                     descripcion = "";
                     informacion = "";
                     tiempoDescomposicion = "";
-                } else { // temporal, debe reemplazarse con un error
-                    System.out.println("Hay alguna casilla vacía.");
+                } else {
+                    throw new MiExcepcion(CODIGOS_ERROR.SUBCATEGORIA_REQUISITOS);
                 }
             }
         } catch (IOException e) {

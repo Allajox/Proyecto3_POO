@@ -26,6 +26,7 @@ public class MiExcepcion extends Exception{
             case CONTRA_VACIA : mensaje = "La contraseña no puede estar vacía"; break;
             case CONTRA_LONGITUD: mensaje = "Contraseña con longitud incorrecta (8 caracteres)"; break;
             case CONTRA_REQUISITOS: mensaje = "La contraseña debe tener al menos una mayúscula, un número y un caracter especial"; break;
+            case SUBCATEGORIA_REQUISITOS: mensaje = "Ningún espacio puede estar vacío"; break;
         }
         return mensaje;
     }   

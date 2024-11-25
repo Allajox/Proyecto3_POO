@@ -23,7 +23,7 @@ public class Reciclable extends Categoria {
     public void mostrarDetallesSubcategorias() {
     for (Subcategoria subcategoria : subcategorias) {
         System.out.println(subcategoria.toString());
-        System.out.println("-----------");
+        System.out.println("-------------------------------------");
         }
     }
 

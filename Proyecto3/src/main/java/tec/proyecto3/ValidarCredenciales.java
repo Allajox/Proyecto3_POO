@@ -8,7 +8,7 @@ public class ValidarCredenciales {
     /**
      * Valida si el nombre no es vacío
      * 
-     * @param nombre
+     * @param nombre String
      * @return true si no está vacío
      * @throws MiExcepcion 
      */
@@ -22,7 +22,7 @@ public class ValidarCredenciales {
     /**
      * Valida si el apellido no es vacío
      * 
-     * @param apellido
+     * @param apellido String
      * @return true si no está vacío
      * @throws MiExcepcion 
      */

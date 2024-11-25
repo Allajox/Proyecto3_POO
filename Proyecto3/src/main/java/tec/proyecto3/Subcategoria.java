@@ -21,10 +21,6 @@ public class Subcategoria {
         this.tiempoDescomposicion = tiempoDescomposicion;
     }
 
-//    public String getTipo() {
-//        return tipo;
-//    }
-
     public String getAutor() {
         return autor;
     }

@@ -21,6 +21,10 @@ public class Subcategoria {
         this.tiempoDescomposicion = tiempoDescomposicion;
     }
 
+//    public String getTipo() {
+//        return tipo;
+//    }
+
     public String getAutor() {
         return autor;
     }
@@ -47,7 +51,7 @@ public class Subcategoria {
 
     @Override
     public String toString() {
-        String resultado = nombre + "\n\n";
+        String resultado = "Nombre: " + nombre + "\n\n";
         resultado += "Aporte por: " + autor + " " + apellidoAutor + "\n\n";
         resultado += "Descripción: " + descripcion + "\n\n";
         resultado += "Información de tratamiento: " + informacion + "\n\n";

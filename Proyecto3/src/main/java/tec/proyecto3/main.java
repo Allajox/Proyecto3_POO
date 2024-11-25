@@ -44,29 +44,37 @@ public class main {
         Reciclable reciclable = new Reciclable("Residuos que pueden ser reutilizados.");
         NoReciclable noReciclable = new NoReciclable("Residuos que no pueden ser reciclados.");
 
+        
+        
+        // PARA PROBAR cargarArchivo(), COMENTAR TODO LO SIGUIENTE HASTA EL .clear()
+        
         // Crear subcategorías
         reciclable.agregarSubcategoria("Allan","Jiménez", "Vidrio", "Material reutilizable para fabricar nuevos productos.", "Se recomienda guardarlo.", "Indefinido");
         reciclable.agregarSubcategoria("Pedro", "Pérez","Papel", "Material reutilizable para hacer más papel.", "Se recomienda guardarlo", "2-6 meses");
         noReciclable.agregarSubcategoria("Flint", "Loco", "Orgánicos", "Material que no se puede reciclar.", "Botar", "1-6 meses");
+        
+//         guarda las subcategorias
+        for (Subcategoria sub : reciclable.getSubcategorias()) {
+            manejoArchivos.guardarArchivo("Reciclable", sub.getAutor(), sub.getApellidoAutor(), sub.getNombre(), 
+                                          sub.getDescripcion(), sub.getInformacion(), sub.getTiempoDescomposicion());
+        }
+        for (Subcategoria sub : noReciclable.getSubcategorias()) {
+            manejoArchivos.guardarArchivo("No reciclable", sub.getAutor(), sub.getApellidoAutor(), sub.getNombre(), 
+                                          sub.getDescripcion(), sub.getInformacion(), sub.getTiempoDescomposicion());
+        }
+        // esto es para que a la hora de guardar, no se impriman 2 veces las subcategorías
+        // eso pasaba porque el programa mostraba las subcategorías que estaban en el archivo de texto
+        // y las que tenía creadas en ese momento
+        reciclable.getSubcategorias().clear();
+        noReciclable.getSubcategorias().clear();
+        
+        // carga las subcategorias
+        manejoArchivos.cargarArchivo(reciclable, noReciclable);
 
         // Mostrar subcategorías según tipo
         reciclable.mostrarSubcategorias();
         noReciclable.mostrarSubcategorias();
         reciclable.mostrarDetallesSubcategorias();
         noReciclable.mostrarDetallesSubcategorias();
-        
-        // guarda las subcategorias
-        for (Subcategoria sub : reciclable.getSubcategorias()) {
-            manejoArchivos.guardarArchivo(sub.getAutor(), sub.getApellidoAutor(), sub.getNombre(), 
-                                          sub.getDescripcion(), sub.getInformacion(), sub.getTiempoDescomposicion());
-        }
-        for (Subcategoria sub : noReciclable.getSubcategorias()) {
-            manejoArchivos.guardarArchivo(sub.getAutor(), sub.getApellidoAutor(), sub.getNombre(), 
-                                          sub.getDescripcion(), sub.getInformacion(), sub.getTiempoDescomposicion());
-        }
-    
-        // carga las subcategorias
-        manejoArchivos.cargarArchivo(reciclable);
-        manejoArchivos.cargarArchivo(noReciclable);
     }
 }

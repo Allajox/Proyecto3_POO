@@ -14,6 +14,7 @@ public class manejoArchivos {
     /**
      * Guarda el archivo de texto
      * 
+     * @param tipoCategoria
      * @param autor
      * @param apellido
      * @param nombre
@@ -21,10 +22,11 @@ public class manejoArchivos {
      * @param informacion
      * @param tiempoDescomposicion
      */
-    public static void guardarArchivo(String autor, String apellido, String nombre, String descripcion, String informacion, String tiempoDescomposicion) {
+    public static void guardarArchivo(String tipoCategoria, String autor, String apellido, String nombre, String descripcion, String informacion, String tiempoDescomposicion) {
         // no es necesario usar .close() por Try-with-resources
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt", true))) {
-            writer.write(nombre + "\n\n");
+            writer.write("Categoría: " + tipoCategoria + "\n\n");
+            writer.write("Nombre: " + nombre + "\n\n");
             writer.write("Aporte por: " + autor + " " + apellido + "\n\n");
             writer.write("Descripción: " + descripcion + "\n\n");
             writer.write("Información de tratamiento: " + informacion + "\n\n");
@@ -36,20 +38,24 @@ public class manejoArchivos {
     
     /**
      * 
-     * @param categoria
+     * @param reciclable
+     * @param noReciclable
      */
-    public static void cargarArchivo(Categoria categoria) throws MiExcepcion {
-        // no es necesario usar .close() por Try-with-resources
+    public static void cargarArchivo(Categoria reciclable, Categoria noReciclable) {
         try (BufferedReader reader = new BufferedReader(new FileReader("output.txt"))) {
             String line;
+            String tipoCategoria = "";
             String autor = "", apellidoAutor = "", nombre = "", descripcion = "", informacion = "", tiempoDescomposicion = "";
 
             while ((line = reader.readLine()) != null) {
-                line = line.trim(); // trim() elimina espacios en blanco
-                if (line.startsWith("Aporte por:")) {
-                    // substring() hace que se ignore el texto hasta cierto punto, hasta 11 en este caso
-                    String[] partes = line.substring(11).split(" "); // split separa el string original en 2 cuando se encuentra un espacio
-                    autor = partes[0]; // elige qué parte del split se va a usar
+                line = line.trim();
+                if (line.startsWith("Categoría:")) {
+                tipoCategoria = line.substring(10).trim();
+                } else if (line.startsWith("Nombre:")) {
+                   nombre = line.substring(7).trim();
+                } else if (line.startsWith("Aporte por:")) {
+                    String[] partes = line.substring(12).split(" ");
+                    autor = partes[0];
                     apellidoAutor = partes[1];
                 } else if (line.startsWith("Descripción:")) {
                     descripcion = line.substring(12).trim();
@@ -60,21 +66,23 @@ public class manejoArchivos {
                 } else if (!line.isEmpty()) {
                     nombre = line;
                 }
-
-                // si todas las casillas tienen texto, se añade la subcategoría
-                if (!autor.isEmpty() && !apellidoAutor.isEmpty() && !nombre.isEmpty() && 
+                
+                if (!nombre.isEmpty() && !autor.isEmpty() && !apellidoAutor.isEmpty() && 
                     !descripcion.isEmpty() && !informacion.isEmpty() && !tiempoDescomposicion.isEmpty()) {
-                    categoria.agregarSubcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
 
+                    if (tipoCategoria.equals("Reciclable")) {
+                    reciclable.agregarSubcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
+                    } else if (tipoCategoria.equals("No reciclable")) {
+                    noReciclable.agregarSubcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
+                    }
                     // Reinicia las variables para la próxima subcategoría
+                    tipoCategoria = "";
                     autor = "";
                     apellidoAutor = "";
                     nombre = "";
                     descripcion = "";
                     informacion = "";
                     tiempoDescomposicion = "";
-                } else {
-                    throw new MiExcepcion(CODIGOS_ERROR.SUBCATEGORIA_REQUISITOS);
                 }
             }
         } catch (IOException e) {

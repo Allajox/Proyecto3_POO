@@ -76,6 +76,15 @@ public class SistemaIniciarSesion {
     return false;
     }
     
+    /**
+     * Cierra la sesión de la cuenta, quitando la cuenta activa
+     */
+    public void cerrarSesion() {
+        System.out.println(cuentaActiva + " cerró sesión.");
+        this.cuentaActiva = null;
+        
+    }
+    
     public Cuenta getCuentaActiva() {
         return cuentaActiva;
     }

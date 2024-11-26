@@ -35,7 +35,7 @@ public class Cuenta {
 
     @Override
     public String toString() {
-        return "Cuenta{" + "nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contraseña=" + contraseña + '}';
+        return "nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contraseña=" + contraseña + '}';
     }
     
     

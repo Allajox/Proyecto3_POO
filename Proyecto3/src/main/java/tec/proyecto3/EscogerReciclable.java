@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package tec.proyecto3;
 
@@ -8,14 +8,14 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author usuario
+ * @author draga
  */
-public class Categorias extends javax.swing.JPanel {
+public class EscogerReciclable extends javax.swing.JFrame {
 
     /**
-     * Creates new form Categorias
+     * Creates new form EscogerReciclable
      */
-    public Categorias() {
+    public EscogerReciclable() {
         initComponents();
     }
 
@@ -33,6 +33,8 @@ public class Categorias extends javax.swing.JPanel {
         panelCategorias = new javax.swing.JPanel();
         lblNombreCate = new javax.swing.JLabel();
         btnSalirCate = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnReciclable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reciclar.png"))); // NOI18N
         btnReciclable.addActionListener(new java.awt.event.ActionListener() {
@@ -54,6 +56,11 @@ public class Categorias extends javax.swing.JPanel {
         lblNombreCate.setText("Nombre:");
 
         btnSalirCate.setText("Salir");
+        btnSalirCate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirCateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCategoriasLayout = new javax.swing.GroupLayout(panelCategorias);
         panelCategorias.setLayout(panelCategoriasLayout);
@@ -76,8 +83,8 @@ public class Categorias extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -102,46 +109,66 @@ public class Categorias extends javax.swing.JPanel {
                     .addComponent(btnReciclable))
                 .addContainerGap(264, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnNoReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoReciclableActionPerformed
-        JFrame nuevaVentana = new JFrame("SubCategorías");
-
-    // Configurar el nuevo JFrame
-        nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        nuevaVentana.setSize(1280, 720);
-        nuevaVentana.setLocationRelativeTo(null);
-
-        // Agregar el panel SubCategorias al nuevo JFrame
-        nuevaVentana.setContentPane(new SubCategorias());
-
-        // Hacer visible la nueva ventana
-        nuevaVentana.setVisible(true);
-
-        // Cerrar la ventana actual (JFrame que contiene el panel Categorias)
-        JFrame ventanaActual = (JFrame) javax.swing.SwingUtilities.getWindowAncestor(this);
-        ventanaActual.dispose();
-    }//GEN-LAST:event_btnNoReciclableActionPerformed
-
     private void btnReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReciclableActionPerformed
-        JFrame nuevaVentana = new JFrame("SubCategorías");
+        JFrame nuevaVentana = new EscogerCategorias();
 
-    // Configurar el nuevo JFrame
-        nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        nuevaVentana.setSize(1280, 720);
-        nuevaVentana.setLocationRelativeTo(null);
-
-        // Agregar el panel SubCategorias al nuevo JFrame
-        nuevaVentana.setContentPane(new SubCategorias());
-
-        // Hacer visible la nueva ventana
         nuevaVentana.setVisible(true);
-
-        // Cerrar la ventana actual (JFrame que contiene el panel Categorias)
-        JFrame ventanaActual = (JFrame) javax.swing.SwingUtilities.getWindowAncestor(this);
-        ventanaActual.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnReciclableActionPerformed
 
+    private void btnNoReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoReciclableActionPerformed
+        JFrame nuevaVentana = new EscogerCategorias();
+
+        nuevaVentana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnNoReciclableActionPerformed
+
+    private void btnSalirCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCateActionPerformed
+        JFrame nuevaVentana = new Register();
+
+        nuevaVentana.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnSalirCateActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(EscogerReciclable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(EscogerReciclable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(EscogerReciclable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EscogerReciclable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new EscogerReciclable().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNoReciclable;

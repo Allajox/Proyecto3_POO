@@ -44,6 +44,7 @@ public class Register extends javax.swing.JFrame {
         lblCorreo = new javax.swing.JLabel();
         lblContraseña = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblErrorRegistrarse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -129,13 +130,16 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(170, 170, 170)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addComponent(btnTengoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(58, 58, 58)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(btnTengoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21))
+                            .addComponent(btnRegistrarse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblErrorRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNombre)
@@ -176,16 +180,19 @@ public class Register extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblContraseña))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnRegistrarse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTengoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnRegistrarse)
+                                .addGap(6, 6, 6)
+                                .addComponent(btnTengoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblErrorRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(371, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private SistemaIniciarSesion sistema = new SistemaIniciarSesion();
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
@@ -203,29 +210,35 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_txtApellidoActionPerformed
 
     private void btnTengoCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTengoCuentaActionPerformed
-        JFrame nuevaVentana = new JFrame("Categorías");
-
-        nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        nuevaVentana.setSize(1280, 720);
-        nuevaVentana.setLocationRelativeTo(this);
-
-        nuevaVentana.setContentPane(new Categorias());
+        JFrame nuevaVentana = new EscogerReciclable();
 
         nuevaVentana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnTengoCuentaActionPerformed
         
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        JFrame nuevaVentana = new JFrame("Categorías");
+        lblErrorRegistrarse.setText("");
+        try {
+            String nombre = txtNombre.getText();
+            String apellido = txtApellido.getText();
+            String correo = txtCorreo.getText();
+            String contraseña = txtContraseña.getText();
 
-        nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        nuevaVentana.setSize(1280, 720);
-        nuevaVentana.setLocationRelativeTo(this);
+            sistema.registrarCuenta(nombre, apellido, correo, contraseña);
 
-        nuevaVentana.setContentPane(new Categorias());
+            lblErrorRegistrarse.setText("Usuario creado correctamente.");
+
+        } catch (Exception e){
+            lblErrorRegistrarse.setText(e.getMessage());
+        }
+        
+
+        JFrame nuevaVentana = new EscogerReciclable();
 
         nuevaVentana.setVisible(true);
         this.dispose();
+        
+
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     /**
@@ -258,6 +271,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblCrearCuenta;
+    private javax.swing.JLabel lblErrorRegistrarse;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtContraseña;

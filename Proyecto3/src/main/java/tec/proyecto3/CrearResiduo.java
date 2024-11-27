@@ -1,19 +1,21 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package tec.proyecto3;
 
+import javax.swing.JFrame;
+
 /**
  *
- * @author usuario
+ * @author draga
  */
-public class DescripcionResiduo extends javax.swing.JPanel {
+public class CrearResiduo extends javax.swing.JFrame {
 
     /**
-     * Creates new form Categorias
+     * Creates new form CrearResiduo
      */
-    public DescripcionResiduo() {
+    public CrearResiduo() {
         initComponents();
     }
 
@@ -26,6 +28,7 @@ public class DescripcionResiduo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblImagen = new javax.swing.JLabel();
         panelResiduo = new javax.swing.JPanel();
         lblNombreResiduo = new javax.swing.JLabel();
         btnSalirResiduo = new javax.swing.JButton();
@@ -34,7 +37,10 @@ public class DescripcionResiduo extends javax.swing.JPanel {
         txtTitulo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
-        lblImagen = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblImagen.setText("Imagen:");
 
         panelResiduo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -42,6 +48,11 @@ public class DescripcionResiduo extends javax.swing.JPanel {
         lblNombreResiduo.setText("Nombre:");
 
         btnSalirResiduo.setText("Salir");
+        btnSalirResiduo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirResiduoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelResiduoLayout = new javax.swing.GroupLayout(panelResiduo);
         panelResiduo.setLayout(panelResiduoLayout);
@@ -72,10 +83,8 @@ public class DescripcionResiduo extends javax.swing.JPanel {
         txtDescripcion.setRows(5);
         jScrollPane1.setViewportView(txtDescripcion);
 
-        lblImagen.setText("Imagen:");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -93,7 +102,7 @@ public class DescripcionResiduo extends javax.swing.JPanel {
                                 .addComponent(lblTitulo)
                                 .addGap(293, 293, 293)
                                 .addComponent(lblImagen)))))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,10 +119,53 @@ public class DescripcionResiduo extends javax.swing.JPanel {
                 .addComponent(lblDescripcion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSalirResiduoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirResiduoActionPerformed
+        JFrame nuevaVentana = new EscogerCategorias();
+
+        nuevaVentana.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSalirResiduoActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CrearResiduo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CrearResiduo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CrearResiduo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CrearResiduo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new CrearResiduo().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalirResiduo;

@@ -244,7 +244,7 @@ public class Register extends javax.swing.JFrame {
         
         */
         if(correcto){
-            JFrame nuevaVentana = new EscogerReciclable();
+            JFrame nuevaVentana = new Login();
 
             nuevaVentana.setVisible(true);
             this.dispose();

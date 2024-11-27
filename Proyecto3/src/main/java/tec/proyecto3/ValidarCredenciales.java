@@ -14,7 +14,7 @@ public class ValidarCredenciales {
      */
     public static boolean validarNombre(String nombre) throws MiExcepcion {
         if (nombre.isEmpty())
-            throw new MiExcepcion(CODIGOS_ERROR.NOMBRE_VACIO);
+            throw new RuntimeException("Nombre esta vacio");
         else
             return true;
     }
@@ -28,7 +28,7 @@ public class ValidarCredenciales {
      */
     public static boolean validarApellido(String apellido) throws MiExcepcion {
         if (apellido.isEmpty())
-            throw new MiExcepcion(CODIGOS_ERROR.APELLIDO_VACIO);
+            throw new RuntimeException("Nombre esta vacio");
         else
             return true;
     }
@@ -45,13 +45,13 @@ public class ValidarCredenciales {
         String regexContraseña = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?]).{8,}$";
     
         if (contraseña.isEmpty()) 
-            throw new MiExcepcion(CODIGOS_ERROR.CONTRA_VACIA);
+            throw new RuntimeException("Contraseña vacia");
         
         if (contraseña.length() < 8) 
-            throw new MiExcepcion(CODIGOS_ERROR.CONTRA_LONGITUD);
+            throw new RuntimeException("Contraseña muy corta");
         
         if (!contraseña.matches(regexContraseña))
-            throw new MiExcepcion(CODIGOS_ERROR.CONTRA_REQUISITOS);
+            throw new RuntimeException("falta numero, caracteres o mayuscula");
         return true;
     }
 
@@ -66,9 +66,9 @@ public class ValidarCredenciales {
     public static boolean validarCorreo(String correo) throws MiExcepcion { 
         String regexCorreo = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
         if (correo.isEmpty())
-            throw new MiExcepcion(CODIGOS_ERROR.CORREO_VACIO);
+            throw new RuntimeException("Correo Vacio");
         if (!correo.matches(regexCorreo))
-            throw new MiExcepcion(CODIGOS_ERROR.CORREO_REQUISITOS);
+            throw new RuntimeException("Correo Invalido");
         return true;
     }
 }

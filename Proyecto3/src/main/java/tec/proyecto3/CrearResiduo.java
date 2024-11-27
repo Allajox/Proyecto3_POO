@@ -43,8 +43,9 @@ public class CrearResiduo extends javax.swing.JFrame {
         lblImagen.setText("Imagen:");
 
         panelResiduo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelResiduo.setForeground(new java.awt.Color(153, 255, 153));
 
-        lblNombreResiduo.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        lblNombreResiduo.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 18)); // NOI18N
         lblNombreResiduo.setText("Nombre:");
 
         btnSalirResiduo.setText("Salir");
@@ -119,7 +120,7 @@ public class CrearResiduo extends javax.swing.JFrame {
                 .addComponent(lblDescripcion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
 
         pack();

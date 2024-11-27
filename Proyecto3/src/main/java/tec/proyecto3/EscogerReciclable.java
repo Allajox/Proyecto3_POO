@@ -130,7 +130,7 @@ public class EscogerReciclable extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNoReciclableActionPerformed
 
     private void btnSalirCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCateActionPerformed
-        JFrame nuevaVentana = new Register();
+        JFrame nuevaVentana = new Login();
 
         nuevaVentana.setVisible(true);
         this.dispose();

@@ -34,14 +34,14 @@ public class Categorias extends javax.swing.JPanel {
         lblNombreCate = new javax.swing.JLabel();
         btnSalirCate = new javax.swing.JButton();
 
-        btnReciclable.setText("Reciclable");
+        btnReciclable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reciclar.png"))); // NOI18N
         btnReciclable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReciclableActionPerformed(evt);
             }
         });
 
-        btnNoReciclable.setText("No Reciclable");
+        btnNoReciclable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/noReciclar.png"))); // NOI18N
         btnNoReciclable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNoReciclableActionPerformed(evt);
@@ -62,7 +62,7 @@ public class Categorias extends javax.swing.JPanel {
             .addGroup(panelCategoriasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 553, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalirCate)
                 .addContainerGap())
         );
@@ -81,27 +81,26 @@ public class Categorias extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(btnReciclable, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95)
-                        .addComponent(btnNoReciclable, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(213, 213, 213)
+                .addComponent(btnReciclable, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                .addComponent(btnNoReciclable, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(227, 227, 227))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReciclable, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNoReciclable, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(140, 140, 140)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNoReciclable)
+                    .addComponent(btnReciclable))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -110,7 +109,7 @@ public class Categorias extends javax.swing.JPanel {
 
     // Configurar el nuevo JFrame
         nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        nuevaVentana.setSize(745, 430);
+        nuevaVentana.setSize(1280, 720);
         nuevaVentana.setLocationRelativeTo(null);
 
         // Agregar el panel SubCategorias al nuevo JFrame
@@ -129,7 +128,7 @@ public class Categorias extends javax.swing.JPanel {
 
     // Configurar el nuevo JFrame
         nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        nuevaVentana.setSize(745, 430);
+        nuevaVentana.setSize(1280, 720);
         nuevaVentana.setLocationRelativeTo(null);
 
         // Agregar el panel SubCategorias al nuevo JFrame

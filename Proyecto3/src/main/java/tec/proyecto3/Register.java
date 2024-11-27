@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package tec.proyecto3;
 
 import javax.swing.JFrame;
@@ -222,7 +218,6 @@ public class Register extends javax.swing.JFrame {
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         lblErrorRegistrarse.setText("");
         correcto = true;
-        /*
         try {
             String nombre = txtNombre.getText();
             String apellido = txtApellido.getText();
@@ -234,29 +229,17 @@ public class Register extends javax.swing.JFrame {
             ValidarCredenciales.validarCorreo(correo);
             ValidarCredenciales.validarContraseña(contraseña);
             sistema.registrarCuenta(nombre, apellido, correo, contraseña);
-            
-            
-
         } catch (Exception e){
             lblErrorRegistrarse.setText(e.getMessage());
             correcto = false;
         } 
-        
-        */
+
         if(correcto){
             JFrame nuevaVentana = new Login();
 
             nuevaVentana.setVisible(true);
             this.dispose();
         }
-        
-        
-        
-        
-        
-        
-        
-
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     /**

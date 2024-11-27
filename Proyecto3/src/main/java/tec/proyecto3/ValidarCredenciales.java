@@ -14,7 +14,7 @@ public class ValidarCredenciales {
      */
     public static boolean validarNombre(String nombre) throws MiExcepcion {
         if (nombre.isEmpty())
-            throw new RuntimeException("Nombre esta vacio");
+            throw new RuntimeException("El nombre no puede estar vacío");
         else
             return true;
     }
@@ -28,7 +28,7 @@ public class ValidarCredenciales {
      */
     public static boolean validarApellido(String apellido) throws MiExcepcion {
         if (apellido.isEmpty())
-            throw new RuntimeException("Nombre esta vacio");
+            throw new RuntimeException("El apellido no puede estar vacío");
         else
             return true;
     }
@@ -45,13 +45,13 @@ public class ValidarCredenciales {
         String regexContraseña = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?]).{8,}$";
     
         if (contraseña.isEmpty()) 
-            throw new RuntimeException("Contraseña vacia");
+            throw new RuntimeException("La contraseña no puede estar vacía");
         
         if (contraseña.length() < 8) 
-            throw new RuntimeException("Contraseña muy corta");
+            throw new RuntimeException("Contraseña con longitud incorrecta (8 caracteres)");
         
         if (!contraseña.matches(regexContraseña))
-            throw new RuntimeException("falta numero, caracteres o mayuscula");
+            throw new RuntimeException("La contraseña debe tener al menos una mayúscula, un número y un caracter especial");
         return true;
     }
 
@@ -66,9 +66,9 @@ public class ValidarCredenciales {
     public static boolean validarCorreo(String correo) throws MiExcepcion { 
         String regexCorreo = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
         if (correo.isEmpty())
-            throw new RuntimeException("Correo Vacio");
+            throw new RuntimeException("El correo no puede estar vacío");
         if (!correo.matches(regexCorreo))
-            throw new RuntimeException("Correo Invalido");
+            throw new RuntimeException("El correo no cumple con el formato");
         return true;
     }
 }

@@ -5,12 +5,35 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 /**
  *
  * @author allaj
  */
 public class manejoArchivos {
+ /**
+     * Escribe una lista de usuarios en un archivo de texto.
+     * 
+     * @param sistema SistemaIniciarSesion que contiene las cuentas.
+     * @param nombreArchivo Nombre del archivo donde se guardarán las cuentas.
+     */
+    public static void escribirUsuarios(SistemaIniciarSesion sistema, String nombreArchivo) {
+        List<Cuenta> cuentas = sistema.getCuentas();
+        
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
+            for (Cuenta cuenta : cuentas) {
+                String linea = "Nombre: " + cuenta.getNombre() + " " + cuenta.getApellido() +
+                               ", Correo: " + cuenta.getCorreo();
+                writer.write(linea);
+                writer.newLine();
+            }
+            System.out.println("Cuentas guardadas exitosamente en el archivo: " + nombreArchivo);
+        } catch (IOException e) {
+            System.out.println("Error al escribir las cuentas en el archivo: " + e.getMessage());
+        }
+    }
+    
     /**
      * Guarda el archivo de texto
      * 

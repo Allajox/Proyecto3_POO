@@ -57,10 +57,10 @@ public class Register extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(255, 255, 255)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblCrearCuenta)
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addGap(531, 531, 531))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,9 +125,9 @@ public class Register extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(60, 60, 60)
+                .addContainerGap(258, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -148,16 +148,19 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(txtNombre)
                             .addComponent(txtContraseña)
                             .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(382, 382, 382))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNombre))
@@ -176,11 +179,8 @@ public class Register extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnRegistrarse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTengoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addComponent(btnTengoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
 
         pack();
@@ -206,7 +206,7 @@ public class Register extends javax.swing.JFrame {
         JFrame nuevaVentana = new JFrame("Categorías");
 
         nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        nuevaVentana.setSize(745, 430);
+        nuevaVentana.setSize(1280, 720);
         nuevaVentana.setLocationRelativeTo(this);
 
         nuevaVentana.setContentPane(new Categorias());
@@ -219,7 +219,7 @@ public class Register extends javax.swing.JFrame {
         JFrame nuevaVentana = new JFrame("Categorías");
 
         nuevaVentana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        nuevaVentana.setSize(745, 430);
+        nuevaVentana.setSize(1280, 720);
         nuevaVentana.setLocationRelativeTo(this);
 
         nuevaVentana.setContentPane(new Categorias());

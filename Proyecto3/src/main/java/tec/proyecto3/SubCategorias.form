@@ -17,53 +17,41 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton6" min="-2" pref="177" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton7" min="-2" pref="177" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton8" min="-2" pref="177" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" pref="177" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton3" min="-2" pref="177" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" pref="177" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-              <EmptySpace pref="35" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButton3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jButton7" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jButton8" min="-2" pref="95" max="-2" attributes="0"/>
+              <EmptySpace pref="387" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton5" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton6" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton7" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                  <Component id="jButton8" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jButton7" max="32767" attributes="0"/>
+                  <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jButton5" pref="134" max="32767" attributes="0"/>
+                  <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jButton6" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jButton8" pref="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="110" max="32767" attributes="0"/>
+              <EmptySpace pref="405" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,7 +59,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Papel"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/papel.png"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -92,7 +82,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="92" max="-2" attributes="0"/>
-                  <EmptySpace pref="553" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -129,27 +119,46 @@
     </Container>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Plastico"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/plastico.png"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Electronico"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/electronico.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Metal"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/aluminio.png"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Organico"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/organico.png"/>
+        </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Vidrio"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/vidrio.png"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+            <EmptyBorder/>
+          </Border>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>

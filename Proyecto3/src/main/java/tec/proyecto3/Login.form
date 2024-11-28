@@ -40,8 +40,8 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtContraIS" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtCorreoIS" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                          <Component id="txtCorreoIS" pref="139" max="32767" attributes="0"/>
+                          <Component id="txtContraIS" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
                   </Group>
@@ -73,13 +73,13 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtContraIS" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblContraIS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtContraIS" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnEntrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblErrorLogin" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnEntrar" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -135,11 +135,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCorreoISActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtContraIS">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContraISActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="btnEntrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Entrar"/>
@@ -161,6 +156,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblErrorLogin">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtContraIS">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtContraISActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -32,11 +32,11 @@ public class Login extends javax.swing.JFrame {
         lblIniciarSesion = new javax.swing.JLabel();
         lblContraIS = new javax.swing.JLabel();
         txtCorreoIS = new javax.swing.JTextField();
-        txtContraIS = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
         lblCorreoIS = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblErrorLogin = new javax.swing.JLabel();
+        txtContraIS = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,12 +67,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtContraIS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraISActionPerformed(evt);
-            }
-        });
-
         btnEntrar.setText("Entrar");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +77,12 @@ public class Login extends javax.swing.JFrame {
         lblCorreoIS.setText("Correo");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reciclar.png"))); // NOI18N
+
+        txtContraIS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraISActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,8 +103,8 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(lblContraIS))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtContraIS)
-                            .addComponent(txtCorreoIS, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCorreoIS, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                            .addComponent(txtContraIS))
                         .addGap(337, 337, 337))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,12 +128,12 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(lblCorreoIS))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtContraIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblContraIS))
+                            .addComponent(lblContraIS)
+                            .addComponent(txtContraIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEntrar)
-                            .addComponent(lblErrorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblErrorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEntrar))))
                 .addContainerGap(266, Short.MAX_VALUE))
         );
 
@@ -146,19 +146,15 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoISActionPerformed
 
-    private void txtContraISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraISActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraISActionPerformed
-
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         correcto = true;
         try {
             String correo = txtCorreoIS.getText();
             String contraseña = txtContraIS.getText();
-            /*
+            
             ValidarCredenciales.validarCorreo(correo);
             ValidarCredenciales.validarContraseña(contraseña);
-            */
+            
             // aqui va el codigo para buscar los register pasados en un archivo de texto
 
         } catch (Exception e){
@@ -172,6 +168,10 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void txtContraISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraISActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraISActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,7 +216,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblCorreoIS;
     private javax.swing.JLabel lblErrorLogin;
     private javax.swing.JLabel lblIniciarSesion;
-    private javax.swing.JTextField txtContraIS;
+    private javax.swing.JPasswordField txtContraIS;
     private javax.swing.JTextField txtCorreoIS;
     // End of variables declaration//GEN-END:variables
 }

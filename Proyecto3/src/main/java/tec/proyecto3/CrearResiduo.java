@@ -68,7 +68,6 @@ public class CrearResiduo extends javax.swing.JFrame {
         lblCuentaActiva.setBackground(new java.awt.Color(0, 0, 0));
         lblCuentaActiva.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
         lblCuentaActiva.setForeground(new java.awt.Color(255, 255, 255));
-        lblCuentaActiva.setText("Allan");
 
         javax.swing.GroupLayout panelCategoriassssLayout = new javax.swing.GroupLayout(panelCategoriassss);
         panelCategoriassss.setLayout(panelCategoriassssLayout);

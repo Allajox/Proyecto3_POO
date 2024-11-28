@@ -5,15 +5,12 @@ import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-
-import java.awt.FlowLayout;
 import javax.swing.JOptionPane;
 /**
  *
  * @author draga
  */
 public class EscogerCategorias extends javax.swing.JFrame {
-    private List<Subcategoria> subcategorias;
     private boolean datosCargados = false;
     /**
      * Creates new form EscogerCategorias
@@ -23,7 +20,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
         SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
         String usuarioActivo = sistema.getAutor();
         lblCuentaActiva.setText(usuarioActivo);
-        panelCategorias.setLayout(new GridLayout(0, 3, 10, 10));
+        panelCategorias.setLayout(new GridLayout(0, 3, 300, 10));
         cargarResiduos();
     }
 
@@ -78,7 +75,6 @@ public class EscogerCategorias extends javax.swing.JFrame {
         lblCuentaActiva.setBackground(new java.awt.Color(0, 0, 0));
         lblCuentaActiva.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
         lblCuentaActiva.setForeground(new java.awt.Color(255, 255, 255));
-        lblCuentaActiva.setText("Allan");
 
         javax.swing.GroupLayout panelCategoriassssLayout = new javax.swing.GroupLayout(panelCategoriassss);
         panelCategoriassss.setLayout(panelCategoriassssLayout);
@@ -174,11 +170,13 @@ public class EscogerCategorias extends javax.swing.JFrame {
         String nombreResiduo = JOptionPane.showInputDialog(this, "Ingrese el nombre del residuo:");
 
         if (nombreResiduo != null && !nombreResiduo.trim().isEmpty()) {
+            // Crear un objeto Subcategoria con datos mínimos
+            Subcategoria nuevoResiduo = new Subcategoria("Categoría genérica", nombreResiduo, "Autor", "Apellido", "Descripción breve", "Tratamiento general", "Desconocido");
+
+            // Crear un botón para el residuo
             JButton nuevoBoton = new JButton(nombreResiduo);
-            nuevoBoton.setPreferredSize(new Dimension(150, 50)); // Tamaño fijo de los botones
-            nuevoBoton.addActionListener(e -> {
-                JOptionPane.showMessageDialog(this, "Información del residuo: " + nombreResiduo);
-            });
+            nuevoBoton.setPreferredSize(new Dimension(150, 100)); // Tamaño fijo de los botones
+            nuevoBoton.addActionListener(e -> mostrarInformacionResiduo(nuevoResiduo));
 
             panelCategorias.add(nuevoBoton);
             panelCategorias.revalidate();
@@ -206,17 +204,9 @@ public class EscogerCategorias extends javax.swing.JFrame {
 
 
     public void mostrarInformacionResiduo(Subcategoria residuo) {
-        String informacion = String.format(
-            "Categoría: %s\nNombre: %s\nAporte por: %s %s\nDescripción: %s\nTratamiento: %s\nTiempo de descomposición: %s",
-            residuo.getCategoria(),
-            residuo.getNombre(),
-            residuo.getAutor(),
-            residuo.getApellidoAutor(),
-            residuo.getDescripcion(),
-            residuo.getInformacion(),
-            residuo.getTiempoDescomposicion()
-        );
-        JOptionPane.showMessageDialog(this, informacion);
+        VentanaInformacion ventanaResiduo = new VentanaInformacion(residuo);
+        ventanaResiduo.setVisible(true);
+        this.dispose();
     }
     
     

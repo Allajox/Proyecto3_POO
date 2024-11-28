@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,27 +13,6 @@ import java.util.List;
  * @author allaj
  */
 public class manejoArchivos {
- /**
-     * Escribe una lista de usuarios en un archivo de texto.
-     * 
-     * @param sistema SistemaIniciarSesion que contiene las cuentas.
-     * @param nombreArchivo Nombre del archivo donde se guardarán las cuentas.
-     */
-    public static void escribirUsuarios(SistemaIniciarSesion sistema, String nombreArchivo) {
-        List<Cuenta> cuentas = sistema.getCuentas();
-        
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
-            for (Cuenta cuenta : cuentas) {
-                String linea = "Nombre: " + cuenta.getNombre() + " " + cuenta.getApellido() +
-                               ", Correo: " + cuenta.getCorreo();
-                writer.write(linea);
-                writer.newLine();
-            }
-            System.out.println("Cuentas guardadas exitosamente en el archivo: " + nombreArchivo);
-        } catch (IOException e) {
-            System.out.println("Error al escribir las cuentas en el archivo: " + e.getMessage());
-        }
-    }
     
     /**
      * Guarda el archivo de texto
@@ -59,6 +39,56 @@ public class manejoArchivos {
             System.out.println(e);
         }
     }
+    
+    public static List<Subcategoria> cargarResiduos() {
+        List<Subcategoria> residuos = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("output.txt"))) {
+            String line;
+            String tipoCategoria = "", autor = "", apellidoAutor = "", nombre = "", descripcion = "", informacion = "", tiempoDescomposicion = "";
+
+            while ((line = reader.readLine()) != null) {
+                line = line.trim(); // Elimina espacios en blanco al inicio y final
+                if (line.startsWith("Categoría:")) {
+                    tipoCategoria = line.substring(10).trim();
+                } else if (line.startsWith("Nombre:")) {
+                    nombre = line.substring(7).trim();
+                } else if (line.startsWith("Aporte por:")) {
+                    String[] partes = line.substring(12).split(" ");
+                    autor = partes.length > 0 ? partes[0] : "";
+                    apellidoAutor = partes.length > 1 ? partes[1] : "";
+                } else if (line.startsWith("Descripción:")) {
+                    descripcion = line.substring(12).trim();
+                } else if (line.startsWith("Información de tratamiento:")) {
+                    informacion = line.substring(26).trim();
+                } else if (line.startsWith("Tiempo de descomposición:")) {
+                    tiempoDescomposicion = line.substring(26).trim();
+                }
+
+                // Si todas las variables están completas, crea el residuo
+                if (!tipoCategoria.isEmpty() && !nombre.isEmpty() && !autor.isEmpty() &&
+                    !apellidoAutor.isEmpty() && !descripcion.isEmpty() &&
+                    !informacion.isEmpty() && !tiempoDescomposicion.isEmpty()) {
+
+                    // Crear el objeto residuo
+                    Subcategoria residuo = new Subcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
+                    residuos.add(residuo);
+
+                    // Reiniciar las variables para el próximo residuo
+                    tipoCategoria = "";
+                    autor = "";
+                    apellidoAutor = "";
+                    nombre = "";
+                    descripcion = "";
+                    informacion = "";
+                    tiempoDescomposicion = "";
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al cargar el archivo: " + e.getMessage());
+        }
+        return residuos;
+    }
+
     
     /**
      * Carga el archivo de texto. Crea nuevos objetos de tipo subcategoría

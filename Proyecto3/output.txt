@@ -1,0 +1,36 @@
+Categoría: Reciclable
+
+Nombre: Vidrio
+
+Aporte por: Allan Jiménez
+
+Descripción: Material reutilizable para fabricar nuevos productos.
+
+Información de tratamiento: Se recomienda guardarlo.
+
+Tiempo de descomposición: Indefinido
+
+Categoría: Reciclable
+
+Nombre: Papel
+
+Aporte por: Pedro Pérez
+
+Descripción: Material reutilizable para hacer más papel.
+
+Información de tratamiento: Se recomienda guardarlo
+
+Tiempo de descomposición: 2-6 meses
+
+Categoría: No reciclable
+
+Nombre: Orgánicos
+
+Aporte por: Flint Loco
+
+Descripción: Material que no se puede reciclar.
+
+Información de tratamiento: Botar
+
+Tiempo de descomposición: 1-6 meses
+

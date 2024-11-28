@@ -5,9 +5,8 @@ import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
-
+import java.awt.FlowLayout;
 /**
  *
  * @author draga

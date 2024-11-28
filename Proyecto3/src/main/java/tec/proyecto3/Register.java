@@ -31,7 +31,6 @@ public class Register extends javax.swing.JFrame {
         lblCrearCuenta = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
         btnRegistrarse = new javax.swing.JButton();
         btnTengoCuenta = new javax.swing.JButton();
@@ -41,6 +40,7 @@ public class Register extends javax.swing.JFrame {
         lblContraseña = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblErrorRegistrarse = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -73,12 +73,6 @@ public class Register extends javax.swing.JFrame {
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
-            }
-        });
-
-        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraseñaActionPerformed(evt);
             }
         });
 
@@ -138,8 +132,8 @@ public class Register extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtApellido)
                                     .addComponent(txtNombre)
-                                    .addComponent(txtContraseña)
-                                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                    .addComponent(txtContraseña))
                                 .addGap(382, 382, 382))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,8 +170,8 @@ public class Register extends javax.swing.JFrame {
                             .addComponent(lblCorreo))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblContraseña))
+                            .addComponent(lblContraseña)
+                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -199,10 +193,6 @@ public class Register extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
-
-    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     private void txtApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidoActionPerformed
         // TODO add your handling code here:
@@ -275,7 +265,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel lblErrorRegistrarse;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtApellido;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

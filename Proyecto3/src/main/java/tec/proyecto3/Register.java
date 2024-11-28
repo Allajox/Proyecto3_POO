@@ -118,7 +118,7 @@ public class Register extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 252, Short.MAX_VALUE)
+                        .addGap(0, 152, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(170, 170, 170)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -184,7 +184,7 @@ public class Register extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private SistemaIniciarSesion sistema = new SistemaIniciarSesion();
+    SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
     private boolean correcto = true;
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
@@ -218,6 +218,7 @@ public class Register extends javax.swing.JFrame {
             ValidarCredenciales.validarApellido(apellido);
             ValidarCredenciales.validarCorreo(correo);
             ValidarCredenciales.validarContraseña(contraseña);
+            SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
             sistema.registrarCuenta(nombre, apellido, correo, contraseña);
         } catch (Exception e){
             lblErrorRegistrarse.setText(e.getMessage());

@@ -13,6 +13,9 @@ public class CrearResiduo extends javax.swing.JFrame {
      */
     public CrearResiduo() {
         initComponents();
+        SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
+        String usuarioActivo = sistema.getAutor();
+        lblCuentaActiva.setText(usuarioActivo);
     }
 
     /**
@@ -25,54 +28,21 @@ public class CrearResiduo extends javax.swing.JFrame {
     private void initComponents() {
 
         lblImagen = new javax.swing.JLabel();
-        panelResiduo = new javax.swing.JPanel();
-        lblNombreResiduo = new javax.swing.JLabel();
-        btnSalirResiduo = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         lblDescripcion = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
+        panelCategoriassss = new javax.swing.JPanel();
+        lblNombreCate = new javax.swing.JLabel();
+        btnSalirCate = new javax.swing.JButton();
+        lblCuentaActiva = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblImagen.setText("Imagen:");
 
-        panelResiduo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelResiduo.setForeground(new java.awt.Color(153, 255, 153));
-
-        lblNombreResiduo.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 18)); // NOI18N
-        lblNombreResiduo.setText("Nombre:");
-
-        btnSalirResiduo.setText("Salir");
-        btnSalirResiduo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirResiduoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelResiduoLayout = new javax.swing.GroupLayout(panelResiduo);
-        panelResiduo.setLayout(panelResiduoLayout);
-        panelResiduoLayout.setHorizontalGroup(
-            panelResiduoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelResiduoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblNombreResiduo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 553, Short.MAX_VALUE)
-                .addComponent(btnSalirResiduo)
-                .addContainerGap())
-        );
-        panelResiduoLayout.setVerticalGroup(
-            panelResiduoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResiduoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelResiduoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreResiduo)
-                    .addComponent(btnSalirResiduo))
-                .addContainerGap())
-        );
-
-        lblTitulo.setText("Titulo:");
+        lblTitulo.setText("Nombre del residuo:");
 
         lblDescripcion.setText("Descripcion:");
 
@@ -80,54 +50,97 @@ public class CrearResiduo extends javax.swing.JFrame {
         txtDescripcion.setRows(5);
         jScrollPane1.setViewportView(txtDescripcion);
 
+        panelCategoriassss.setBackground(new java.awt.Color(34, 197, 94));
+        panelCategoriassss.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        lblNombreCate.setBackground(new java.awt.Color(0, 0, 0));
+        lblNombreCate.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
+        lblNombreCate.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombreCate.setText("Usuario:");
+
+        btnSalirCate.setText("Salir");
+        btnSalirCate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirCateActionPerformed(evt);
+            }
+        });
+
+        lblCuentaActiva.setBackground(new java.awt.Color(0, 0, 0));
+        lblCuentaActiva.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
+        lblCuentaActiva.setForeground(new java.awt.Color(255, 255, 255));
+        lblCuentaActiva.setText("Allan");
+
+        javax.swing.GroupLayout panelCategoriassssLayout = new javax.swing.GroupLayout(panelCategoriassss);
+        panelCategoriassss.setLayout(panelCategoriassssLayout);
+        panelCategoriassssLayout.setHorizontalGroup(
+            panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCategoriassssLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalirCate)
+                .addGap(34, 34, 34))
+        );
+        panelCategoriassssLayout.setVerticalGroup(
+            panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCategoriassssLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(btnSalirCate)
+                .addContainerGap(38, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCategoriassssLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreCate)
+                    .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTitulo)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelResiduo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDescripcion)
-                            .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTitulo)
-                                .addGap(293, 293, 293)
-                                .addComponent(lblImagen)))))
-                .addContainerGap(182, Short.MAX_VALUE))
+                        .addComponent(lblDescripcion)
+                        .addGap(441, 441, 441)
+                        .addComponent(lblImagen))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtTitulo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)))
+                .addContainerGap(545, Short.MAX_VALUE))
+            .addComponent(panelCategoriassss, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelResiduo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelCategoriassss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(lblTitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTitulo)
+                    .addComponent(lblDescripcion)
                     .addComponent(lblImagen))
-                .addGap(9, 9, 9)
-                .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDescripcion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirResiduoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirResiduoActionPerformed
+    private void btnSalirCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCateActionPerformed
         JFrame nuevaVentana = new EscogerCategorias();
 
         nuevaVentana.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnSalirResiduoActionPerformed
+    }//GEN-LAST:event_btnSalirCateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,13 +178,14 @@ public class CrearResiduo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalirResiduo;
+    private javax.swing.JButton btnSalirCate;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCuentaActiva;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblImagen;
-    private javax.swing.JLabel lblNombreResiduo;
+    private javax.swing.JLabel lblNombreCate;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JPanel panelResiduo;
+    private javax.swing.JPanel panelCategoriassss;
     private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables

@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import java.awt.FlowLayout;
+import javax.swing.JOptionPane;
 /**
  *
  * @author draga
@@ -19,6 +20,9 @@ public class EscogerCategorias extends javax.swing.JFrame {
      */
     public EscogerCategorias() {
         initComponents();
+        SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
+        String usuarioActivo = sistema.getAutor();
+        lblCuentaActiva.setText(usuarioActivo);
         panelCategorias.setLayout(new GridLayout(0, 3, 10, 10));
         cargarResiduos();
     }
@@ -37,6 +41,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
         btnSalirCate = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnAgregarResiduos = new javax.swing.JButton();
+        lblCuentaActiva = new javax.swing.JLabel();
         panelCategorias = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,7 +52,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
         lblNombreCate.setBackground(new java.awt.Color(0, 0, 0));
         lblNombreCate.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
         lblNombreCate.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombreCate.setText("Nombre:");
+        lblNombreCate.setText("Usuario:");
 
         btnSalirCate.setText("Salir");
         btnSalirCate.addActionListener(new java.awt.event.ActionListener() {
@@ -70,18 +75,29 @@ public class EscogerCategorias extends javax.swing.JFrame {
             }
         });
 
+        lblCuentaActiva.setBackground(new java.awt.Color(0, 0, 0));
+        lblCuentaActiva.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
+        lblCuentaActiva.setForeground(new java.awt.Color(255, 255, 255));
+        lblCuentaActiva.setText("Allan");
+
         javax.swing.GroupLayout panelCategoriassssLayout = new javax.swing.GroupLayout(panelCategoriassss);
         panelCategoriassss.setLayout(panelCategoriassssLayout);
         panelCategoriassssLayout.setHorizontalGroup(
             panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCategoriassssLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNombreCate)
-                .addGap(134, 134, 134)
-                .addComponent(btnAgregarResiduos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(325, 325, 325)
+                .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCategoriassssLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(panelCategoriassssLayout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(btnAgregarResiduos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(btnSalirCate)
                 .addGap(34, 34, 34))
         );
@@ -90,16 +106,20 @@ public class EscogerCategorias extends javax.swing.JFrame {
             .addGroup(panelCategoriassssLayout.createSequentialGroup()
                 .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSalirCate)))
+                        .addGap(13, 13, 13)
+                        .addComponent(btnAgregarResiduos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAgregarResiduos))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addComponent(btnSalirCate)))
+                .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(panelCategoriassssLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreCate)
+                    .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelCategoriasLayout = new javax.swing.GroupLayout(panelCategorias);
@@ -119,17 +139,13 @@ public class EscogerCategorias extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 14, Short.MAX_VALUE))
-                    .addComponent(panelCategoriassss, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addComponent(panelCategoriassss, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panelCategoriassss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -240,6 +256,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarResiduos;
     private javax.swing.JButton btnSalirCate;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel lblCuentaActiva;
     private javax.swing.JLabel lblNombreCate;
     private javax.swing.JPanel panelCategorias;
     private javax.swing.JPanel panelCategoriassss;

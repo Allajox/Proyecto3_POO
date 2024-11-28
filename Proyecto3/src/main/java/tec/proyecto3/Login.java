@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package tec.proyecto3;
 
 import javax.swing.JFrame;
@@ -95,7 +91,7 @@ public class Login extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(219, 219, 219)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +130,7 @@ public class Login extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblErrorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnEntrar))))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,24 +144,24 @@ public class Login extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         correcto = true;
+        lblErrorLogin.setText("");
         try {
             String correo = txtCorreoIS.getText();
             String contraseña = txtContraIS.getText();
-            
-            ValidarCredenciales.validarCorreo(correo);
-            ValidarCredenciales.validarContraseña(contraseña);
-            
-            // aqui va el codigo para buscar los register pasados en un archivo de texto
 
-        } catch (Exception e){
+        // Valida las credenciales e inicia sesión
+            SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
+            if (sistema.iniciarSesion(correo, contraseña)) {
+                // Abre la nueva ventana al iniciar sesión correctamente
+                JFrame nuevaVentana = new EscogerReciclable();
+                nuevaVentana.setVisible(true);
+                this.dispose();
+            } else {
+                lblErrorLogin.setText("Correo o contraseña incorrectos.");
+            }
+        } catch (Exception e) {
             lblErrorLogin.setText(e.getMessage());
             correcto = false;
-        }
-        if(correcto){
-            JFrame nuevaVentana = new EscogerReciclable();
-
-            nuevaVentana.setVisible(true);
-            this.dispose();
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

@@ -13,6 +13,10 @@ public class EscogerReciclable extends javax.swing.JFrame {
      */
     public EscogerReciclable() {
         initComponents();
+        SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
+        String usuarioActivo = sistema.getAutor();
+        lblCuentaActiva.setText(usuarioActivo);
+        
     }
 
     /**
@@ -29,6 +33,7 @@ public class EscogerReciclable extends javax.swing.JFrame {
         panelCategorias = new javax.swing.JPanel();
         lblNombreCate = new javax.swing.JLabel();
         btnSalirCate = new javax.swing.JButton();
+        lblCuentaActiva = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,7 +57,7 @@ public class EscogerReciclable extends javax.swing.JFrame {
         lblNombreCate.setBackground(new java.awt.Color(0, 0, 0));
         lblNombreCate.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
         lblNombreCate.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombreCate.setText("Nombre:");
+        lblNombreCate.setText("Usuario:");
 
         btnSalirCate.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 18)); // NOI18N
         btnSalirCate.setText("Salir");
@@ -63,13 +68,19 @@ public class EscogerReciclable extends javax.swing.JFrame {
             }
         });
 
+        lblCuentaActiva.setBackground(new java.awt.Color(0, 0, 0));
+        lblCuentaActiva.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
+        lblCuentaActiva.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout panelCategoriasLayout = new javax.swing.GroupLayout(panelCategorias);
         panelCategorias.setLayout(panelCategoriasLayout);
         panelCategoriasLayout.setHorizontalGroup(
             panelCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCategoriasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblNombreCate)
+                .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalirCate, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
@@ -78,10 +89,14 @@ public class EscogerReciclable extends javax.swing.JFrame {
             panelCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCategoriasLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
+                .addComponent(btnSalirCate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(panelCategoriasLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalirCate, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(lblNombreCate)
+                    .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -91,7 +106,7 @@ public class EscogerReciclable extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(213, 213, 213)
                 .addComponent(btnReciclable, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addComponent(btnNoReciclable, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(227, 227, 227))
             .addComponent(panelCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -99,7 +114,6 @@ public class EscogerReciclable extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(130, 130, 130)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,6 +147,7 @@ public class EscogerReciclable extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSalirCateActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -164,6 +179,7 @@ public class EscogerReciclable extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new EscogerReciclable().setVisible(true);
+                
             }
         });
     }
@@ -172,6 +188,7 @@ public class EscogerReciclable extends javax.swing.JFrame {
     private javax.swing.JButton btnNoReciclable;
     private javax.swing.JButton btnReciclable;
     private javax.swing.JButton btnSalirCate;
+    private javax.swing.JLabel lblCuentaActiva;
     private javax.swing.JLabel lblNombreCate;
     private javax.swing.JPanel panelCategorias;
     // End of variables declaration//GEN-END:variables

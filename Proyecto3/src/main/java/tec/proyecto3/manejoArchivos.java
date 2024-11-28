@@ -64,13 +64,12 @@ public class manejoArchivos {
                     tiempoDescomposicion = line.substring(26).trim();
                 }
 
-                // Si todas las variables están completas, crea el residuo
+                // si todas las casillas están llenas, crea una nueva subcategoría
                 if (!tipoCategoria.isEmpty() && !nombre.isEmpty() && !autor.isEmpty() &&
                     !apellidoAutor.isEmpty() && !descripcion.isEmpty() &&
                     !informacion.isEmpty() && !tiempoDescomposicion.isEmpty()) {
 
-                    // Crear el objeto residuo
-                    Subcategoria residuo = new Subcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
+                    Subcategoria residuo = new Subcategoria(tipoCategoria, autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
                     residuos.add(residuo);
 
                     // Reiniciar las variables para el próximo residuo
@@ -97,60 +96,60 @@ public class manejoArchivos {
      * @param reciclable objeto tipo Reciclable
      * @param noReciclable objeto tipo NoReciclable
      */
-    public static void cargarArchivo(Categoria reciclable, Categoria noReciclable) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("output.txt"))) {
-            String line;
-            String tipoCategoria = "", autor = "", apellidoAutor = "", nombre = "", descripcion = "", informacion = "", tiempoDescomposicion = "";
-
-            while ((line = reader.readLine()) != null) {
-                line = line.trim(); // .trim() quita los espacios en blanco
-                if (line.startsWith("Categoría:")) {
-                    tipoCategoria = line.substring(10).trim(); // substring() es para ignorar los caracteres antes de los 2 puntos
-                    
-                    } else if (line.startsWith("Nombre:")) {
-                       nombre = line.substring(7).trim();
-                       
-                    } else if (line.startsWith("Aporte por:")) {
-                        // se hace una lista, se divide en 2 con .split(), y a autor y apellido se le asignan las 2 partes
-                        String[] partes = line.substring(12).split(" ");
-                        autor = partes[0];
-                        apellidoAutor = partes[1];
-                        
-                    } else if (line.startsWith("Descripción:")) {
-                        descripcion = line.substring(12).trim();
-                        
-                    } else if (line.startsWith("Información de tratamiento:")) {
-                        informacion = line.substring(26).trim();
-                        
-                    } else if (line.startsWith("Tiempo de descomposición:")) {
-                        tiempoDescomposicion = line.substring(26).trim();
-                        
-                    } else if (!line.isEmpty()) {
-                        nombre = line;
-                    }
-                
-                // si todas las casillas están llenas, crea una nueva categoría
-                if (!nombre.isEmpty() && !autor.isEmpty() && !apellidoAutor.isEmpty() && 
-                    !descripcion.isEmpty() && !informacion.isEmpty() && !tiempoDescomposicion.isEmpty()) {
-                    
-                    // dependiendo de la categoría, añade la subcategoría
-                    if (tipoCategoria.equals("Reciclable")) {
-                    reciclable.agregarSubcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
-                    } else if (tipoCategoria.equals("No reciclable")) {
-                    noReciclable.agregarSubcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
-                    }
-                    // Reinicia las variables para la próxima subcategoría
-                    tipoCategoria = "";
-                    autor = "";
-                    apellidoAutor = "";
-                    nombre = "";
-                    descripcion = "";
-                    informacion = "";
-                    tiempoDescomposicion = "";
-                }
-            }
-        } catch (IOException e) {
-            System.out.println("Error al cargar el archivo: " + e.getMessage());
-        }
-    }
+//    public static void cargarArchivo(Categoria reciclable, Categoria noReciclable) {
+//        try (BufferedReader reader = new BufferedReader(new FileReader("output.txt"))) {
+//            String line;
+//            String tipoCategoria = "", autor = "", apellidoAutor = "", nombre = "", descripcion = "", informacion = "", tiempoDescomposicion = "";
+//
+//            while ((line = reader.readLine()) != null) {
+//                line = line.trim(); // .trim() quita los espacios en blanco
+//                if (line.startsWith("Categoría:")) {
+//                    tipoCategoria = line.substring(10).trim(); // substring() es para ignorar los caracteres antes de los 2 puntos
+//                    
+//                    } else if (line.startsWith("Nombre:")) {
+//                       nombre = line.substring(7).trim();
+//                       
+//                    } else if (line.startsWith("Aporte por:")) {
+//                        // se hace una lista, se divide en 2 con .split(), y a autor y apellido se le asignan las 2 partes
+//                        String[] partes = line.substring(12).split(" ");
+//                        autor = partes[0];
+//                        apellidoAutor = partes[1];
+//                        
+//                    } else if (line.startsWith("Descripción:")) {
+//                        descripcion = line.substring(12).trim();
+//                        
+//                    } else if (line.startsWith("Información de tratamiento:")) {
+//                        informacion = line.substring(26).trim();
+//                        
+//                    } else if (line.startsWith("Tiempo de descomposición:")) {
+//                        tiempoDescomposicion = line.substring(26).trim();
+//                        
+//                    } else if (!line.isEmpty()) {
+//                        nombre = line;
+//                    }
+//                
+//                // si todas las casillas están llenas, crea una nueva categoría
+//                if (!nombre.isEmpty() && !autor.isEmpty() && !apellidoAutor.isEmpty() && 
+//                    !descripcion.isEmpty() && !informacion.isEmpty() && !tiempoDescomposicion.isEmpty()) {
+//                    
+//                    // dependiendo de la categoría, añade la subcategoría
+//                    if (tipoCategoria.equals("Reciclable")) {
+//                    reciclable.agregarSubcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
+//                    } else if (tipoCategoria.equals("No reciclable")) {
+//                    noReciclable.agregarSubcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
+//                    }
+//                    // Reinicia las variables para la próxima subcategoría
+//                    tipoCategoria = "";
+//                    autor = "";
+//                    apellidoAutor = "";
+//                    nombre = "";
+//                    descripcion = "";
+//                    informacion = "";
+//                    tiempoDescomposicion = "";
+//                }
+//            }
+//        } catch (IOException e) {
+//            System.out.println("Error al cargar el archivo: " + e.getMessage());
+//        }
+//    }
 }

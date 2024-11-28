@@ -79,9 +79,9 @@ public class EscogerCategorias extends javax.swing.JFrame {
                 .addComponent(lblNombreCate)
                 .addGap(134, 134, 134)
                 .addComponent(btnAgregarResiduos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(311, 311, 311)
+                .addGap(325, 325, 325)
                 .addComponent(btnSalirCate)
                 .addGap(34, 34, 34))
         );
@@ -170,14 +170,17 @@ public class EscogerCategorias extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarResiduosActionPerformed
 
-    private void cargarResiduos() {
+    public void cargarResiduos() {
         if (datosCargados) return; // Evita cargar más de una vez
 
         List<Subcategoria> residuos = manejoArchivos.cargarResiduos();
+
         for (Subcategoria residuo : residuos) {
-            JButton botonResiduo = new JButton(residuo.getNombre());
-            botonResiduo.addActionListener(e -> mostrarInformacionResiduo(residuo));
-            panelCategorias.add(botonResiduo);
+            // Crear un botón solo para los residuos correspondientes a esta categoría
+                JButton botonResiduo = new JButton(residuo.getNombre());
+                botonResiduo.addActionListener(e -> mostrarInformacionResiduo(residuo));
+                panelCategorias.add(botonResiduo); // Añade al panel actual
+            
         }
 
         panelCategorias.revalidate();
@@ -185,9 +188,11 @@ public class EscogerCategorias extends javax.swing.JFrame {
         datosCargados = true;
     }
 
-    private void mostrarInformacionResiduo(Subcategoria residuo) {
+
+    public void mostrarInformacionResiduo(Subcategoria residuo) {
         String informacion = String.format(
-            "Nombre: %s\nAporte por: %s %s\nDescripción: %s\nTratamiento: %s\nTiempo de descomposición: %s",
+            "Categoría: %s\nNombre: %s\nAporte por: %s %s\nDescripción: %s\nTratamiento: %s\nTiempo de descomposición: %s",
+            residuo.getCategoria(),
             residuo.getNombre(),
             residuo.getAutor(),
             residuo.getApellidoAutor(),

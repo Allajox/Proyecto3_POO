@@ -45,6 +45,7 @@ public class CrearResiduo extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
+        lblErrorCrear = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -259,7 +260,9 @@ public class CrearResiduo extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(461, 461, 461))
+                .addGap(37, 37, 37)
+                .addComponent(lblErrorCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(197, 197, 197))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(53, 53, 53)
@@ -290,7 +293,9 @@ public class CrearResiduo extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblErrorCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
                 .addContainerGap(45, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -314,29 +319,35 @@ public class CrearResiduo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private boolean correcto = true;
     private void btnSalirCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCateActionPerformed
         JFrame nuevaVentana = new EscogerCategorias();
 
         nuevaVentana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirCateActionPerformed
-
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
-//        ManejoArchivos manejo = ManejoArchivos.getInstancia();
-        String nombre = txtNombre.getText();
-        String descripcion = txtDescripcion.getText();
-        String tiempo = txtTiempo.getText();
-        String informacion = txtInformacion.getText();
-        String nombreAutor = sistema.getCuentaActiva().getNombre();
-        String apellidoAutor = sistema.getCuentaActiva().getApellido();
-        
-        ManejoArchivos.guardarArchivo("Reciclable", nombreAutor, apellidoAutor, nombre, descripcion, informacion, tiempo);
-        
-        JFrame nuevaVentana = new EscogerCategorias();
-        nuevaVentana.setVisible(true);
-        this.dispose();
+        lblErrorCrear.setText("");
+        correcto = true;
+        try {
+            String nombreAutor = sistema.getCuentaActiva().getNombre();
+            String apellidoAutor = sistema.getCuentaActiva().getApellido();
+            String nombre = txtNombre.getText();
+            String descripcion = txtDescripcion.getText();
+            String tiempo = txtTiempo.getText();
+            String informacion = txtInformacion.getText();
+            ValidarCredenciales.validarResiduo("Reciclable", nombreAutor, apellidoAutor, nombre, descripcion, informacion, tiempo);
+            ManejoArchivos.guardarArchivo("Reciclable", nombreAutor, apellidoAutor, nombre, descripcion, informacion, tiempo);
+        } catch (MiExcepcion e) {
+            lblErrorCrear.setText(e.getMessage());
+            correcto = false;
+        }
+        if(correcto){
+            JFrame nuevaVentana = new EscogerCategorias();
+            nuevaVentana.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_btnCrearActionPerformed
 
     /**
@@ -387,6 +398,7 @@ public class CrearResiduo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblCuentaActiva;
+    private javax.swing.JLabel lblErrorCrear;
     private javax.swing.JLabel lblNombreCate;
     private javax.swing.JPanel panelCategoriassss;
     private javax.swing.JTextField txtDescripcion;

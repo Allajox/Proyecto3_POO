@@ -14,7 +14,7 @@ public class ValidarCredenciales {
      */
     public static boolean validarNombre(String nombre) throws MiExcepcion {
         if (nombre.isEmpty())
-            throw new RuntimeException("El nombre no puede estar vacío");
+            throw new MiExcepcion(CODIGOS_ERROR.NOMBRE_VACIO);
         else
             return true;
     }
@@ -28,7 +28,7 @@ public class ValidarCredenciales {
      */
     public static boolean validarApellido(String apellido) throws MiExcepcion {
         if (apellido.isEmpty())
-            throw new RuntimeException("El apellido no puede estar vacío");
+            throw new MiExcepcion(CODIGOS_ERROR.APELLIDO_VACIO);
         else
             return true;
     }
@@ -45,13 +45,13 @@ public class ValidarCredenciales {
         String regexContraseña = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?]).{8,}$";
     
         if (contraseña.isEmpty()) 
-            throw new RuntimeException("La contraseña no puede estar vacía");
+            throw new MiExcepcion(CODIGOS_ERROR.CONTRA_VACIA);
         
         if (contraseña.length() < 8) 
-            throw new RuntimeException("Contraseña con longitud incorrecta (8 caracteres)");
+            throw new MiExcepcion(CODIGOS_ERROR.CONTRA_LONGITUD);
         
         if (!contraseña.matches(regexContraseña))
-            throw new RuntimeException("La contraseña debe tener al menos una mayúscula, un número y un caracter especial");
+            throw new MiExcepcion(CODIGOS_ERROR.CONTRA_LONGITUD);
         return true;
     }
 
@@ -66,9 +66,18 @@ public class ValidarCredenciales {
     public static boolean validarCorreo(String correo) throws MiExcepcion { 
         String regexCorreo = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
         if (correo.isEmpty())
-            throw new RuntimeException("El correo no puede estar vacío");
+            throw new MiExcepcion(CODIGOS_ERROR.CORREO_VACIO);
         if (!correo.matches(regexCorreo))
-            throw new RuntimeException("El correo no cumple con el formato");
+            throw new MiExcepcion(CODIGOS_ERROR.CORREO_VACIO);
         return true;
+    }
+    
+    public static boolean validarResiduo(String categoria, String nombreAutor, String apellidoAutor, String nombre, String descripcion, String informacion, String tiempo) throws MiExcepcion {
+        if (nombre.isEmpty() || nombreAutor.isEmpty() || apellidoAutor.isEmpty() || descripcion.isEmpty() ||
+                    informacion.isEmpty() || tiempo.isEmpty()) {
+            throw new MiExcepcion(CODIGOS_ERROR.RESIDUO_REQUISITOS);
+        } else {
+        return true;
+        }
     }
 }

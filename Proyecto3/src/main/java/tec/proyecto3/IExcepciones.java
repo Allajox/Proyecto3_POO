@@ -12,5 +12,5 @@ public interface IExcepciones {
     int CONTRA_VACIA  = 5;
     int CONTRA_LONGITUD = 6;
     int CONTRA_REQUISITOS = 7;
-    int SUBCATEGORIA_REQUISITOS = 8;
+    int RESIDUO_REQUISITOS = 8;
 }

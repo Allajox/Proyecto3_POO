@@ -38,7 +38,12 @@ public class ManejoArchivos {
      * @param tiempoDescomposicion String
      */
     public static void guardarArchivo(String tipoCategoria, String autor, String apellido, 
-            String nombre, String descripcion, String informacion, String tiempoDescomposicion) {
+            String nombre, String descripcion, String informacion, String tiempoDescomposicion) throws MiExcepcion {
+        // valida si el todos los valores son correctos
+        if (nombre == null || nombre.isEmpty() || descripcion == null || descripcion.isEmpty() ||
+        informacion == null || informacion.isEmpty() || tiempoDescomposicion == null || tiempoDescomposicion.isEmpty()) {
+            throw new MiExcepcion(CODIGOS_ERROR.RESIDUO_REQUISITOS);
+        }
         // no es necesario usar .close() por Try-with-resources
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt", true))) {
             writer.write("Categoría: " + tipoCategoria + "\n\n");
@@ -73,7 +78,7 @@ public class ManejoArchivos {
                 } else if (line.startsWith("Información de tratamiento:")) {
                     informacion = line.substring(27).trim();
                 } else if (line.startsWith("Tiempo de descomposición:")) {
-                    tiempoDescomposicion = line.substring(26).trim();
+                    tiempoDescomposicion = line.substring(25).trim();
                 }
 
                 // si todas las casillas están llenas, crea una nueva subcategoría
@@ -92,10 +97,10 @@ public class ManejoArchivos {
                     descripcion = "";
                     informacion = "";
                     tiempoDescomposicion = "";
-                }
+                } 
             }
-        } catch (IOException e) {
-            System.out.println("Error al cargar el archivo: " + e.getMessage());
+        }  catch (IOException e) {
+            System.out.println("Error al cargar el archivo: " + e.getMessage());   
         }
         return residuos;
     }

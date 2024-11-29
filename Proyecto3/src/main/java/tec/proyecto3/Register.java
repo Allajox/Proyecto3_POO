@@ -184,7 +184,7 @@ public class Register extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
+//    SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
     private boolean correcto = true;
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
@@ -220,7 +220,7 @@ public class Register extends javax.swing.JFrame {
             ValidarCredenciales.validarContraseña(contraseña);
             SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
             sistema.registrarCuenta(nombre, apellido, correo, contraseña);
-        } catch (Exception e){
+        } catch (MiExcepcion e){
             lblErrorRegistrarse.setText(e.getMessage());
             correcto = false;
         } 

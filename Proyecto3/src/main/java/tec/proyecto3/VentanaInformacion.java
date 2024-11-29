@@ -13,8 +13,9 @@ public class VentanaInformacion extends javax.swing.JFrame {
      * @param residuo
      */
     public VentanaInformacion(Subcategoria residuo) {
+        SistemaIniciarSesion sistema = new SistemaIniciarSesion();
+        sistema.getInstancia();
         initComponents();
-        SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
         String usuarioActivo = sistema.getAutor();
         lblCuentaActiva.setText(usuarioActivo);
         lblNombre.setText(residuo.getNombre());

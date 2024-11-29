@@ -143,22 +143,29 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCorreoISActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        correcto = true;
-        lblErrorLogin.setText("");
+    correcto = true;
+    lblErrorLogin.setText("");
         try {
             String correo = txtCorreoIS.getText();
-            String contraseña = txtContraIS.getText();
-
-        // Valida las credenciales e inicia sesión
+            String contraseña = new String(txtContraIS.getPassword());
             SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
-            if (sistema.iniciarSesion(correo, contraseña)) {
-                // Abre la nueva ventana al iniciar sesión correctamente
+            boolean credencialesValidas = false;
+            for (Cuenta cuenta : sistema.getCuentas()) {
+                if (cuenta.getCorreo().equals(correo) && cuenta.getContraseña().equals(contraseña)) {
+                    credencialesValidas = true;
+                    sistema.setCuentaActiva(cuenta);
+                    break;
+                }
+            }
+
+            if (credencialesValidas) {
                 JFrame nuevaVentana = new EscogerReciclable();
                 nuevaVentana.setVisible(true);
                 this.dispose();
             } else {
                 lblErrorLogin.setText("Correo o contraseña incorrectos.");
             }
+    
         } catch (Exception e) {
             lblErrorLogin.setText(e.getMessage());
             correcto = false;

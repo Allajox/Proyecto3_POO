@@ -199,9 +199,8 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_txtApellidoActionPerformed
 
     private void btnTengoCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTengoCuentaActionPerformed
-        JFrame nuevaVentana = new EscogerReciclable();
-
-        nuevaVentana.setVisible(true);
+        JFrame ventanaLogin = new Login();
+        ventanaLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnTengoCuentaActionPerformed
         

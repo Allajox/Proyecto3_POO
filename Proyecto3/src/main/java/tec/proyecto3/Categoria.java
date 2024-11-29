@@ -21,7 +21,7 @@ public abstract class Categoria {
         return descripcion;
     }
 
-    public abstract void agregarSubcategoria(String autor, String apellidoAutor, String nombre, String descripcion, String informacion, String tiempoDescomposicion);
+    public abstract void agregarSubcategoria(String categoria, String autor, String apellidoAutor, String nombre, String descripcion, String informacion, String tiempoDescomposicion);
     
     public abstract void mostrarSubcategorias();
 

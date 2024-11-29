@@ -8,12 +8,20 @@ import java.util.List;
  * @author allaj
  */
 public class SistemaIniciarSesion {
+    private static SistemaIniciarSesion instancia;
     private Cuenta cuentaActiva;
     private List<Cuenta> cuentas;
 
     public SistemaIniciarSesion() {
         this.cuentaActiva = null;
         this.cuentas = new ArrayList<>();
+    }
+
+    public static SistemaIniciarSesion getInstancia() {
+        if (instancia == null) {
+            instancia = new SistemaIniciarSesion();
+        }
+        return instancia;
     }
     
     /**
@@ -52,6 +60,7 @@ public class SistemaIniciarSesion {
         } // switch
     } // catch
     return null;
+    
     }
 
     /**

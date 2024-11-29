@@ -1,19 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package tec.proyecto3;
+
+import javax.swing.JFrame;
 
 /**
  *
- * @author usuario
+ * @author draga
  */
-public class Log extends javax.swing.JPanel {
+public class Login extends javax.swing.JFrame {
 
     /**
-     * Creates new form Log
+     * Creates new form Login
      */
-    public Log() {
+    public Login() {
         initComponents();
     }
 
@@ -30,10 +28,13 @@ public class Log extends javax.swing.JPanel {
         lblIniciarSesion = new javax.swing.JLabel();
         lblContraIS = new javax.swing.JLabel();
         txtCorreoIS = new javax.swing.JTextField();
-        txtContraIS = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
         lblCorreoIS = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblErrorLogin = new javax.swing.JLabel();
+        txtContraIS = new javax.swing.JPasswordField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -62,20 +63,25 @@ public class Log extends javax.swing.JPanel {
             }
         });
 
+        btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+
+        lblCorreoIS.setText("Correo");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reciclar.png"))); // NOI18N
+
         txtContraIS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContraISActionPerformed(evt);
             }
         });
 
-        btnEntrar.setText("Entrar");
-
-        lblCorreoIS.setText("Correo");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reciclar.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -85,20 +91,22 @@ public class Log extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(219, 219, 219)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(238, 238, 238)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(58, 58, 58))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCorreoIS)
                             .addComponent(lblContraIS))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtContraIS)
-                            .addComponent(txtCorreoIS, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(353, Short.MAX_VALUE))
+                            .addComponent(txtCorreoIS, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                            .addComponent(txtContraIS))
+                        .addGap(337, 337, 337))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblErrorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(167, 167, 167))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,37 +118,101 @@ public class Log extends javax.swing.JPanel {
                         .addGap(124, 124, 124)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
+                        .addGap(181, 181, 181)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCorreoIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCorreoIS))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtContraIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblContraIS))
+                            .addComponent(lblContraIS)
+                            .addComponent(txtContraIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnEntrar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblErrorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEntrar))))
                 .addContainerGap(267, Short.MAX_VALUE))
         );
-    }// </editor-fold>//GEN-END:initComponents
 
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+    
+    private boolean correcto = true;
+    
     private void txtCorreoISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoISActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoISActionPerformed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        correcto = true;
+        lblErrorLogin.setText("");
+        try {
+            String correo = txtCorreoIS.getText();
+            String contraseña = txtContraIS.getText();
+
+        // Valida las credenciales e inicia sesión
+            SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
+            if (sistema.iniciarSesion(correo, contraseña)) {
+                // Abre la nueva ventana al iniciar sesión correctamente
+                JFrame nuevaVentana = new EscogerReciclable();
+                nuevaVentana.setVisible(true);
+                this.dispose();
+            } else {
+                lblErrorLogin.setText("Correo o contraseña incorrectos.");
+            }
+        } catch (Exception e) {
+            lblErrorLogin.setText(e.getMessage());
+            correcto = false;
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void txtContraISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraISActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContraISActionPerformed
 
-    // IS significa Iniciar Sesión
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Login().setVisible(true);
+            }
+        });
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEntrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblContraIS;
     private javax.swing.JLabel lblCorreoIS;
+    private javax.swing.JLabel lblErrorLogin;
     private javax.swing.JLabel lblIniciarSesion;
-    private javax.swing.JTextField txtContraIS;
+    private javax.swing.JPasswordField txtContraIS;
     private javax.swing.JTextField txtCorreoIS;
     // End of variables declaration//GEN-END:variables
 }

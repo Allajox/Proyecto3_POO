@@ -19,7 +19,7 @@ public class MiExcepcion extends Exception{
     public String getMessage() {
         String mensaje="";
         switch (codExcepcion){
-            case NOMBRE_VACIO : mensaje = "El usuario no puede estar vacío"; break;
+            case NOMBRE_VACIO : mensaje = "El nombre no puede estar vacío"; break;
             case APELLIDO_VACIO : mensaje = "El apellido no puede estar vacío"; break;
             case CORREO_VACIO : mensaje = "El correo no puede estar vacío"; break;
             case CORREO_REQUISITOS: mensaje = "El correo no cumple con el formato"; break;

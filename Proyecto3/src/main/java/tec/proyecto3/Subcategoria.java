@@ -5,6 +5,7 @@ package tec.proyecto3;
  * @author allaj
  */
 public class Subcategoria {
+    private String categoria;
     private String autor;
     private String apellidoAutor;
     private String nombre;
@@ -12,13 +13,18 @@ public class Subcategoria {
     private String informacion;
     private String tiempoDescomposicion;
 
-    public Subcategoria(String autor, String apellidoAutor, String nombre, String descripcion, String informacion, String tiempoDescomposicion) {
+    public Subcategoria(String categoria, String autor, String apellidoAutor, String nombre, String descripcion, String informacion, String tiempoDescomposicion) {
+        this.categoria = categoria;
         this.autor = autor;
         this.apellidoAutor = apellidoAutor;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.informacion = informacion;
         this.tiempoDescomposicion = tiempoDescomposicion;
+    }
+
+    public String getCategoria() {
+        return categoria;
     }
 
     public String getAutor() {
@@ -47,7 +53,8 @@ public class Subcategoria {
 
     @Override
     public String toString() {
-        String resultado = "Nombre: " + nombre + "\n\n";
+        String resultado = "Categoría: " + categoria + "\n\n";
+        resultado += "Nombre: " + nombre + "\n\n";
         resultado += "Aporte por: " + autor + " " + apellidoAutor + "\n\n";
         resultado += "Descripción: " + descripcion + "\n\n";
         resultado += "Información de tratamiento: " + informacion + "\n\n";

@@ -15,8 +15,8 @@ public class Reciclable extends Categoria {
     }
 
     @Override
-    public void agregarSubcategoria(String autor, String apellidoAutor, String nombre, String descripcion, String informacion, String tiempoDescomposicion) {
-        Subcategoria sub = new Subcategoria(autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
+    public void agregarSubcategoria(String categoria, String autor, String apellidoAutor, String nombre, String descripcion, String informacion, String tiempoDescomposicion) {
+        Subcategoria sub = new Subcategoria(categoria, autor, apellidoAutor, nombre, descripcion, informacion, tiempoDescomposicion);
         subcategorias.add(sub);
     }
 

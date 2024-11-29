@@ -26,6 +26,22 @@ public class ManejoArchivos {
         return instancia;
     }
     
+    public static List<Cuenta> cargarUsuarios() {
+        List<Cuenta> cuentas = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader("usuarios.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] datos = line.split(",");
+                if (datos.length == 4) {
+                    cuentas.add(new Cuenta(datos[0], datos[1], datos[2], datos[3]));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error al cargar usuarios: " + e.getMessage());
+        }
+        return cuentas;
+    }
+
     /**
      * Guarda el archivo de texto
      * 

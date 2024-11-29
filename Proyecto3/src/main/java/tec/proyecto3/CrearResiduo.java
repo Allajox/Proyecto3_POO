@@ -65,7 +65,7 @@ public class CrearResiduo extends javax.swing.JFrame {
         lblNombreCate.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreCate.setText("Usuario:");
 
-        btnSalirCate.setText("Salir");
+        btnSalirCate.setText("Atrás");
         btnSalirCate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirCateActionPerformed(evt);

@@ -39,8 +39,8 @@ public class EscogerCategorias extends javax.swing.JFrame {
         lblNombreCate = new javax.swing.JLabel();
         btnSalirCate = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btnAgregarResiduos = new javax.swing.JButton();
         lblCuentaActiva = new javax.swing.JLabel();
+        btnCerrar = new javax.swing.JButton();
         panelCategorias = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,7 +53,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
         lblNombreCate.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreCate.setText("Usuario:");
 
-        btnSalirCate.setText("Salir");
+        btnSalirCate.setText("Atrás");
         btnSalirCate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirCateActionPerformed(evt);
@@ -67,16 +67,16 @@ public class EscogerCategorias extends javax.swing.JFrame {
             }
         });
 
-        btnAgregarResiduos.setText("CrearResiduo");
-        btnAgregarResiduos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarResiduosActionPerformed(evt);
-            }
-        });
-
         lblCuentaActiva.setBackground(new java.awt.Color(0, 0, 0));
         lblCuentaActiva.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 36)); // NOI18N
         lblCuentaActiva.setForeground(new java.awt.Color(255, 255, 255));
+
+        btnCerrar.setText("Cerrar sesión");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCategoriassssLayout = new javax.swing.GroupLayout(panelCategoriassss);
         panelCategoriassss.setLayout(panelCategoriassssLayout);
@@ -87,31 +87,23 @@ public class EscogerCategorias extends javax.swing.JFrame {
                 .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(btnAgregarResiduos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133)
+                .addComponent(btnCerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(66, 66, 66)
                 .addComponent(btnSalirCate)
                 .addGap(34, 34, 34))
         );
         panelCategoriassssLayout.setVerticalGroup(
             panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(btnAgregarResiduos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(btnSalirCate)))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalirCate)
+                    .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(panelCategoriassssLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -138,7 +130,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(panelCategoriassss, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -147,7 +139,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
                 .addComponent(panelCategoriassss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
 
         pack();
@@ -167,27 +159,8 @@ public class EscogerCategorias extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnAgregarResiduosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarResiduosActionPerformed
-        // Solicitar al usuario el nombre del nuevo residuo
-        String nombreResiduo = JOptionPane.showInputDialog(this, "Ingrese el nombre del residuo:");
 
-        if (nombreResiduo != null && !nombreResiduo.trim().isEmpty()) {
-            // Crear un objeto Subcategoria con datos mínimos
-            Subcategoria nuevoResiduo = new Subcategoria("Categoría genérica", nombreResiduo, "Autor", "Apellido", "Descripción breve", "Tratamiento general", "Desconocido");
-
-            // Crear un botón para el residuo
-            JButton nuevoBoton = new JButton(nombreResiduo);
-            nuevoBoton.setPreferredSize(new Dimension(150, 100)); // Tamaño fijo de los botones
-            nuevoBoton.addActionListener(e -> mostrarInformacionResiduo(nuevoResiduo));
-
-            panelCategorias.add(nuevoBoton);
-            panelCategorias.revalidate();
-            panelCategorias.repaint();
-        }
-    }//GEN-LAST:event_btnAgregarResiduosActionPerformed
-
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
     
     // Llama al método para cerrar sesión
@@ -200,7 +173,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
         JFrame login = new Login(); // Crea una instancia de la ventana de inicio de sesión
         login.setVisible(true); // Hace visible la ventana de inicio de sesión
         this.dispose(); // Cierra la ventana actual        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     public final void cargarResiduos() {
         if (datosCargados) return; // Evita cargar más de una vez
@@ -298,7 +271,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregarResiduos;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnSalirCate;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblCuentaActiva;

@@ -187,7 +187,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
     public void cargarResiduos() {
         if (datosCargados) return; // Evita cargar más de una vez
 
-        List<Subcategoria> residuos = manejoArchivos.cargarResiduos();
+        List<Subcategoria> residuos = ManejoArchivos.cargarResiduos();
 
         for (Subcategoria residuo : residuos) {
             // Crear un botón solo para los residuos correspondientes a esta categoría

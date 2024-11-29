@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author allaj
  */
-public class manejoArchivos {
+public class ManejoArchivos {
     
     /**
      * Guarda el archivo de texto
@@ -59,7 +59,7 @@ public class manejoArchivos {
                 } else if (line.startsWith("Descripción:")) {
                     descripcion = line.substring(12).trim();
                 } else if (line.startsWith("Información de tratamiento:")) {
-                    informacion = line.substring(26).trim();
+                    informacion = line.substring(27).trim();
                 } else if (line.startsWith("Tiempo de descomposición:")) {
                     tiempoDescomposicion = line.substring(26).trim();
                 }

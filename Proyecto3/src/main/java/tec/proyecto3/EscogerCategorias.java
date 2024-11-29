@@ -202,33 +202,60 @@ public class EscogerCategorias extends javax.swing.JFrame {
         this.dispose(); // Cierra la ventana actual        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public void cargarResiduos() {
+    public final void cargarResiduos() {
         if (datosCargados) return; // Evita cargar más de una vez
 
         List<Subcategoria> residuos = ManejoArchivos.cargarResiduos();
-
+        panelCategorias.repaint();
         for (Subcategoria residuo : residuos) {
+            panelCategorias.repaint();
             // Crear un botón solo para los residuos correspondientes a esta categoría
-                JButton botonResiduo = new JButton(residuo.getNombre());
-
-                String imagePath = residuo.getNombre()+".png";
-                ImageIcon icono = new ImageIcon(imagePath);
-
-                Image scaledImage = icono.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                icono = new ImageIcon(scaledImage);
-
-                botonResiduo.setIcon(icono);
-                
-                botonResiduo.addActionListener(e -> mostrarInformacionResiduo(residuo));
-                panelCategorias.add(botonResiduo); // Añade al panel actual
             
-        }
+            
+            String reciclable = residuo.getCategoria();
+                if(Estado.getValue()){
+                    
+                
+                    
+                    if ("Reciclable".equals(reciclable)){
+                        JButton botonResiduo = new JButton(residuo.getNombre());
+
+                        String imagePath = residuo.getNombre()+".png";
+                        ImageIcon icono = new ImageIcon(imagePath);
+
+                        Image scaledImage = icono.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+                        icono = new ImageIcon(scaledImage);
+
+                        botonResiduo.setIcon(icono);
+
+                        botonResiduo.addActionListener(e -> mostrarInformacionResiduo(residuo));
+                        panelCategorias.add(botonResiduo); 
+                    }
+                } else if (!(Estado.getValue())){
+                        if (!("Reciclable".equals(reciclable))){
+                        JButton botonResiduo = new JButton(residuo.getNombre());
+
+                        String imagePath = residuo.getNombre()+".png";
+                        ImageIcon icono = new ImageIcon(imagePath);
+
+                        Image scaledImage = icono.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+                        icono = new ImageIcon(scaledImage);
+
+                        botonResiduo.setIcon(icono);
+
+                        botonResiduo.addActionListener(e -> mostrarInformacionResiduo(residuo));
+                        panelCategorias.add(botonResiduo); // Añade al panel actual
+                    }
+                }
+                
+            
+        
 
         panelCategorias.revalidate();
         panelCategorias.repaint();
         datosCargados = true;
     }
-
+    }
 
     public void mostrarInformacionResiduo(Subcategoria residuo) {
         VentanaInformacion ventanaResiduo = new VentanaInformacion(residuo);
@@ -265,6 +292,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
         //</editor-fold>
         
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(() -> new EscogerCategorias().setVisible(true));
     }
     

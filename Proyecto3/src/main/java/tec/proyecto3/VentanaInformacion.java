@@ -1,5 +1,7 @@
 package tec.proyecto3;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -13,8 +15,8 @@ public class VentanaInformacion extends javax.swing.JFrame {
      * @param residuo
      */
     public VentanaInformacion(Subcategoria residuo) {
-        SistemaIniciarSesion sistema = new SistemaIniciarSesion();
-        sistema.getInstancia();
+        SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
+        //SistemaIniciarSesion.getInstancia();
         initComponents();
         String usuarioActivo = sistema.getAutor();
         lblCuentaActiva.setText(usuarioActivo);
@@ -26,7 +28,12 @@ public class VentanaInformacion extends javax.swing.JFrame {
         // estas líneas son para que el texto no se salga del máximo de anchura
         lblDescripcion.setText("<html>"+ lblDescripcion.getText() +"</html>");
         lblInformacion.setText("<html>"+ lblInformacion.getText() +"</html>");
-        
+        String imagePath = residuo.getNombre()+".png";
+        ImageIcon icono = new ImageIcon(imagePath);
+        Image scaledImage = icono.getImage().getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+        icono = new ImageIcon(scaledImage);
+
+        LblResiduo.setIcon(icono);
     }
 
     /**
@@ -57,7 +64,7 @@ public class VentanaInformacion extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         lblInformacion = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        LblResiduo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 51));
@@ -70,7 +77,8 @@ public class VentanaInformacion extends javax.swing.JFrame {
         lblNombreCate.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreCate.setText("Usuario:");
 
-        btnSalirCate.setText("Salir");
+        btnSalirCate.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 24)); // NOI18N
+        btnSalirCate.setText("Atras");
         btnSalirCate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirCateActionPerformed(evt);
@@ -90,21 +98,21 @@ public class VentanaInformacion extends javax.swing.JFrame {
                 .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 405, Short.MAX_VALUE)
-                .addComponent(btnSalirCate)
-                .addGap(34, 34, 34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalirCate, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelCategoriassssLayout.setVerticalGroup(
             panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(btnSalirCate)
-                .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCategoriassssLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreCate)
                     .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(panelCategoriassssLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnSalirCate, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -216,9 +224,8 @@ public class VentanaInformacion extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(153, 153, 153));
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("IMAGEN");
+        LblResiduo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        LblResiduo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -226,14 +233,14 @@ public class VentanaInformacion extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LblResiduo, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LblResiduo, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -255,7 +262,7 @@ public class VentanaInformacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -364,10 +371,10 @@ public class VentanaInformacion extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LblResiduo;
     private javax.swing.JButton btnSalirCate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;

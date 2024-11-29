@@ -85,22 +85,22 @@ public class CrearResiduo extends javax.swing.JFrame {
                 .addComponent(lblNombreCate, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 405, Short.MAX_VALUE)
-                .addComponent(btnSalirCate)
-                .addGap(34, 34, 34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSalirCate, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
         );
         panelCategoriassssLayout.setVerticalGroup(
             panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCategoriassssLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(btnSalirCate)
-                .addContainerGap(38, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCategoriassssLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(panelCategoriassssLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombreCate)
                     .addComponent(lblCuentaActiva, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCategoriassssLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(btnSalirCate, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -274,7 +274,7 @@ public class CrearResiduo extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                             .addComponent(TxtImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(335, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(53, 53, 53)
@@ -337,6 +337,7 @@ public class CrearResiduo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     private boolean correcto = true;
     private boolean correctoImg = false;
+    private String stringEstado = "";
     private void btnSalirCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCateActionPerformed
         JFrame nuevaVentana = new EscogerCategorias();
 
@@ -355,8 +356,13 @@ public class CrearResiduo extends javax.swing.JFrame {
             String descripcion = txtDescripcion.getText();
             String tiempo = txtTiempo.getText();
             String informacion = txtInformacion.getText();
-            ValidarCredenciales.validarResiduo("Reciclable", nombreAutor, apellidoAutor, nombre, descripcion, informacion, tiempo);
-            ManejoArchivos.guardarArchivo("Reciclable", nombreAutor, apellidoAutor, nombre, descripcion, informacion, tiempo);
+            if (Estado.getValue()){
+                stringEstado = "Reciclable";
+            }else{
+                stringEstado = "noReciclable";
+            }
+            ValidarCredenciales.validarResiduo(stringEstado, nombreAutor, apellidoAutor, nombre, descripcion, informacion, tiempo);
+            ManejoArchivos.guardarArchivo(stringEstado, nombreAutor, apellidoAutor, nombre, descripcion, informacion, tiempo);
         } catch (MiExcepcion e) {
             lblErrorCrear.setText(e.getMessage());
             correcto = false;
@@ -395,7 +401,7 @@ public class CrearResiduo extends javax.swing.JFrame {
 
             try {
 
-                if (txtNombre.getText()+".png" != nombreArchivo){
+                if (!(txtNombre.getText()+".png").equals(nombreArchivo)){
                     System.out.println(txtNombre.getText()+".png");
                     System.out.println(nombreArchivo);
                     throw new RuntimeException("El Nombre de la Imagen debe ser igual a el nombre del Residuo");

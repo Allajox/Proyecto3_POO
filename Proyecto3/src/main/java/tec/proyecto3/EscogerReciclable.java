@@ -11,6 +11,7 @@ public class EscogerReciclable extends javax.swing.JFrame {
     /**
      * Creates new form EscogerReciclable
      */
+    
     public EscogerReciclable() {
         initComponents();
         SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
@@ -126,15 +127,17 @@ public class EscogerReciclable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReciclableActionPerformed
+        Estado.setValue(true);
         JFrame nuevaVentana = new EscogerCategorias();
-
+        
         nuevaVentana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnReciclableActionPerformed
 
     private void btnNoReciclableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNoReciclableActionPerformed
+        Estado.setValue(false);
         JFrame nuevaVentana = new EscogerCategorias();
-
+        
         nuevaVentana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnNoReciclableActionPerformed

@@ -1,7 +1,9 @@
 package tec.proyecto3;
 
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 /**
@@ -155,6 +157,15 @@ public class EscogerCategorias extends javax.swing.JFrame {
         for (Subcategoria residuo : residuos) {
             // Crear un botón solo para los residuos correspondientes a esta categoría
                 JButton botonResiduo = new JButton(residuo.getNombre());
+
+                String imagePath = residuo.getNombre()+".png";
+                ImageIcon icono = new ImageIcon(imagePath);
+
+                Image scaledImage = icono.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+                icono = new ImageIcon(scaledImage);
+
+                botonResiduo.setIcon(icono);
+                
                 botonResiduo.addActionListener(e -> mostrarInformacionResiduo(residuo));
                 panelCategorias.add(botonResiduo); // Añade al panel actual
             

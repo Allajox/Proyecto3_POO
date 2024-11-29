@@ -89,13 +89,10 @@ public class SistemaIniciarSesion {
      * Cierra la sesión de la cuenta, quitando la cuenta activa
      */
     public void cerrarSesion() {
-    if (cuentaActiva != null) {
-        System.out.println("La sesión de " + cuentaActiva.getNombre() + " " + cuentaActiva.getApellido() + " ha sido cerrada correctamente.");
+        System.out.println(cuentaActiva + " cerró sesión.");
         this.cuentaActiva = null;
-    } else {
-        System.out.println("No hay una sesión activa para cerrar.");
+        
     }
-}
     
     public Cuenta getCuentaActiva() {
         return cuentaActiva;

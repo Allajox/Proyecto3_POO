@@ -13,6 +13,18 @@ import java.util.List;
  * @author allaj
  */
 public class ManejoArchivos {
+    private static ManejoArchivos instancia;
+    
+    public ManejoArchivos() {
+        
+    }
+    
+    public static ManejoArchivos getInstancia() {
+        if (instancia == null) {
+            instancia = new ManejoArchivos();
+        }
+        return instancia;
+    }
     
     /**
      * Guarda el archivo de texto

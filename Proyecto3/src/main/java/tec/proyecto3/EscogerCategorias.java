@@ -37,6 +37,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         lblCuentaActiva = new javax.swing.JLabel();
         panelCategorias = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,6 +112,13 @@ public class EscogerCategorias extends javax.swing.JFrame {
             .addGap(0, 354, Short.MAX_VALUE)
         );
 
+        jButton1.setText("Cerrar sesion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,6 +128,10 @@ public class EscogerCategorias extends javax.swing.JFrame {
                 .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
             .addComponent(panelCategoriassss, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +139,9 @@ public class EscogerCategorias extends javax.swing.JFrame {
                 .addComponent(panelCategoriassss, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(18, 18, 18))
         );
 
         pack();
@@ -147,6 +161,43 @@ public class EscogerCategorias extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+<<<<<<< Updated upstream
+=======
+    private void btnAgregarResiduosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarResiduosActionPerformed
+        // Solicitar al usuario el nombre del nuevo residuo
+        String nombreResiduo = JOptionPane.showInputDialog(this, "Ingrese el nombre del residuo:");
+
+        if (nombreResiduo != null && !nombreResiduo.trim().isEmpty()) {
+            // Crear un objeto Subcategoria con datos mínimos
+            Subcategoria nuevoResiduo = new Subcategoria("Categoría genérica", nombreResiduo, "Autor", "Apellido", "Descripción breve", "Tratamiento general", "Desconocido");
+
+            // Crear un botón para el residuo
+            JButton nuevoBoton = new JButton(nombreResiduo);
+            nuevoBoton.setPreferredSize(new Dimension(150, 100)); // Tamaño fijo de los botones
+            nuevoBoton.addActionListener(e -> mostrarInformacionResiduo(nuevoResiduo));
+
+            panelCategorias.add(nuevoBoton);
+            panelCategorias.revalidate();
+            panelCategorias.repaint();
+        }
+    }//GEN-LAST:event_btnAgregarResiduosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        SistemaIniciarSesion sistema = SistemaIniciarSesion.getInstancia();
+    
+    // Llama al método para cerrar sesión
+        sistema.cerrarSesion();
+    
+    // Muestra un mensaje visual para confirmar el cierre de sesión
+        JOptionPane.showMessageDialog(this, "Sesión cerrada correctamente.", "Información", JOptionPane.INFORMATION_MESSAGE);
+    
+    // Redirige al usuario a la ventana de inicio de sesión
+        JFrame login = new Login(); // Crea una instancia de la ventana de inicio de sesión
+        login.setVisible(true); // Hace visible la ventana de inicio de sesión
+        this.dispose(); // Cierra la ventana actual        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+>>>>>>> Stashed changes
     public void cargarResiduos() {
         if (datosCargados) return; // Evita cargar más de una vez
 
@@ -207,6 +258,7 @@ public class EscogerCategorias extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalirCate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel lblCuentaActiva;
     private javax.swing.JLabel lblNombreCate;
